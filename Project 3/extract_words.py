@@ -1,7 +1,8 @@
 import re
+from collections import defaultdict
 
 #Extract and lowercase all words and write to allwords.txt
-open_file = open("brothers.txt", "r")
+open_file = open("brothers.txt", encoding = "utf8")
 str1 = ""
 words_list = []
 contents = open_file.readlines()
@@ -21,6 +22,7 @@ file.close()
 #Extract unique words and write to uniquewords.txt
 count = 0
 str2 = ""
+'''
 for word in allwords:
     for i in range(len(allwords)):
         if word == allwords[i]:
@@ -29,12 +31,23 @@ for word in allwords:
         str2 += word+" "
     count = 0
 uniquewords = re.findall("[a-z]+",str2)
-
+'''
+uniquewords = defaultdict(int)
+for word in allwords:
+	if word in uniquewords:
+		d[word] += 1
+	
 file = open("uniquewords.txt","w+")
+for key in uniquewords:
+	if d[key] > 0:
+		file.write(word+"\n")
+file.close
+
+'''
 for word in uniquewords:
     file.write(word+"\n")
 file.close()
-
+'''
 #Extract word frequencies and write to wordfrequency.txt
 count = 0
 frequencies = []
