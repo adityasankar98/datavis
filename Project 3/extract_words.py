@@ -2,12 +2,18 @@ import re
 from collections import defaultdict
 
 #Extract and lowercase all words and write to allwords.txt
-open_file = open("brothers.txt", encoding = "utf8")
+
+open_file = open("brothers.txt", "r")
+#open_file = open("sample.txt", "r")
+
 str1 = ""
 words_list = []
+
 contents = open_file.readlines()
+
 for i in range(len(contents)):
-    words_list.extend(contents[i].split())
+	contents[i] = contents[i].replace("'","")
+	words_list.extend(contents[i].split())
 words_list = [word.lower() for word in words_list]
 for word in words_list:
     str1 += word+" "
@@ -19,58 +25,23 @@ for word in allwords:
     file.write(word+"\n")
 file.close()
 
+
+#Ross's UniqueWords Method
+unique_dict = {}
+for word in allwords:
+	if word in unique_dict:
+		unique_dict[word] += 1
+	else:
+		unique_dict[word] = 1		
+
 #Extract unique words and write to uniquewords.txt
-count = 0
-str2 = ""
-'''
-for word in allwords:
-    for i in range(len(allwords)):
-        if word == allwords[i]:
-            count += 1
-    if count <= 1:
-        str2 += word+" "
-    count = 0
-uniquewords = re.findall("[a-z]+",str2)
-'''
-uniquewords = defaultdict(int)
-for word in allwords:
-	if word in uniquewords:
-		d[word] += 1
-	
 file = open("uniquewords.txt","w+")
-for key in uniquewords:
-	if d[key] > 0:
-		file.write(word+"\n")
-file.close
-
-'''
-for word in uniquewords:
-    file.write(word+"\n")
+for key in unique_dict:
+        file.write(str(key)+"\n")
 file.close()
-'''
-#Extract word frequencies and write to wordfrequency.txt
-count = 0
-frequencies = []
-for word in allwords:
-    for i in range(len(allwords)):
-        if word == allwords[i]:
-            count += 1
-    if count not in frequencies:
-        frequencies.append(count)
-    count = 0
-frequencies.sort()
 
-occurances = [0]*len(frequencies)
-for word in allwords:
-    for i in range(len(allwords)):
-        if word == allwords[i]:
-            count += 1
-    for k in range(len(frequencies)):
-        if frequencies[k] == count:
-            occurances[k] += 1
-    count = 0
-    
+#Extract unique frequencies and write to wordfrequency.txt
 file = open("wordfrequency.txt","w+")
-for i in range(len(frequencies)):
-    file.write(str(frequencies[i])+": "+str(occurances[i])+"\n")
+for key in unique_dict:
+        file.write(str(unique_dict[key])+"\n")
 file.close()
