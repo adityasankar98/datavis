@@ -1,8 +1,6 @@
-PShape bevo;
-PShape head;
-PShape neck;
-//neck;
-float ypos, rate, angle, angleChange;
+PShape bevo, head, neck, body, tail;
+
+float neckangle, neckangleChange, tailangle, tailangleChange;
 
 void setup()
 {
@@ -87,38 +85,120 @@ void setup()
   neck.vertex(-20,40);
   neck.vertex(-10,30);
   neck.endShape(CLOSE);
+  
+  //Body
+  body = createShape();
+  body.beginShape();
+  body.fill(191,87,0);
+  body.noStroke();
+  body.vertex(60,54);
+  body.vertex(70,40);
+  body.vertex(75,38);
+  body.vertex(77,37);
+  body.vertex(79,37);
+  body.vertex(83,38);
+  body.vertex(90,40);
+  body.vertex(110,48);
+  body.vertex(130,50);
+  body.vertex(150,48);
+  body.vertex(160,50);
+  body.vertex(165,55);
+  body.vertex(167,60);
+  body.vertex(170,90);
+  body.vertex(173,93);
+  body.vertex(177,96);
+  body.vertex(178,110);
+  body.vertex(177,120);
+  body.vertex(172,125);
+  body.vertex(166,125);
+  body.vertex(168,120);
+  body.vertex(167,110);
+  body.vertex(155,100);
+  body.vertex(145,95);
+  body.vertex(105,97);
+  body.vertex(95,95);
+  body.vertex(98,110);
+  body.vertex(95,125);
+  body.vertex(89,125);
+  body.vertex(88,110);
+  body.vertex(78,95);
+  body.vertex(79,110);
+  body.vertex(75,125);
+  body.vertex(69,125);
+  body.vertex(68,110);
+  body.vertex(62,95);
+  body.vertex(60,85);
+  body.endShape(CLOSE);
+  
+  //Tail
+  tail = createShape();
+  tail.beginShape();
+  tail.fill(209,122,45);
+  tail.noStroke();
+  tail.vertex(8,5);
+  tail.vertex(13,15);
+  tail.vertex(13,25);
+  tail.vertex(10,35);
+  tail.vertex(12,45);
+  tail.vertex(16,46);
+  tail.vertex(19,50);
+  tail.vertex(20,55);
+  tail.vertex(19,65);
+  tail.vertex(21,72);
+  tail.vertex(14,65);
+  tail.vertex(8,55);
+  tail.vertex(8,44);
+  tail.vertex(6,35);
+  tail.vertex(8,15);
+  tail.vertex(0,0);
+  tail.endShape(CLOSE);
 
   //Canvas
   size(500,500);
   bevo.addChild(head);
   bevo.addChild(neck);
-  rate = 0.2;
-  angle = 0;
-  angleChange = 0.065;
+  bevo.addChild(body);
+  bevo.addChild(tail);
+
+  neckangle = 0;
+  tailangle = 0;
+  neckangleChange = 0.065;
+  tailangleChange = 0.5;
 }
 
 void draw()
 {
-  ypos += rate;
-  if ((ypos+177) > height || ypos < 270)
+  neckangle -= neckangleChange;
+  if (neckangle < -25 || neckangle > 0)
   {
-    rate = -rate;
+    neckangleChange = -neckangleChange;
   }
-  angle -= angleChange;
-  if (angle < -16.5 || angle > 0)
+  tailangle -= tailangleChange;
+  if (tailangle < -10 || tailangle > 0)
   {
-    angleChange = -angleChange;
+    tailangleChange = -tailangleChange;
   }
   background(255,248,226);
+  pushMatrix();
+  translate(145,250);
+  scale(2,2);
+  shape(bevo.getChild(2));
+  popMatrix();
   //shape(bevo);
   pushMatrix();
   //scale(.75,.75);
-  translate(400,370);
-  rotate(radians(angle));
+  translate(350,370);
+  rotate(radians(neckangle));
   shape(bevo.getChild(1));
   pushMatrix();
   translate(-240,-80);
   shape(bevo.getChild(0));
   popMatrix();
+  popMatrix();
+  pushMatrix();
+  translate(465,350);
+  rotate(radians(-10));
+  rotate(radians(tailangle));
+  shape(bevo.getChild(3));
   popMatrix();
 }
