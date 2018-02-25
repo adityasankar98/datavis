@@ -1,0 +1,53 @@
+Ross Miglin (rdm2965), Godson Inikori (agi93) )Maria Krychniak (mck959): Description File
+
+What we created:
+-For this assignment we decided to use the novel "The Brothers Karamazov" as our basis novel from Project Gutenberg. We then used this book to complete the assignment requirements that displayed random words, a word frequency visualization, and a word cloud.
+
+PYTHON PORTION (Ross, Godson)
+
+To extract and lowercase all the words: 
+	-Opened a textfile to read the novel 
+	-Converted the letters to lowercase
+	-Used the "findall" to extract all letters
+	-Opened the allwords.txt and wrote in the words from the novel
+	-Closed the file
+
+To extract unique words and write to uniquewords.txt: 
+	-Used allwords to to find the unique words in the text 
+	-Created a list for frequencies
+	-Checked against allwords to see if the frequency already existed 
+	-If did not exist then new frequency count was created
+	-Sorted the frequency count
+	-Opened the wordfrequency file
+	-Wrote all the words and their frequencies to the file 
+	-Closed the file
+
+To extract word frequencies and write to wordfrequency.txt: 
+	-Used allwords to to find the unique words in the text 
+	-Used the "findall" to extract all letters
+	-Wrote out the words in the uncquewords.txt
+	-Closed the file
+
+
+PROCESSING PORTION (Maria, Godson, Ross)
+
+
+Creating "Novel Frequency Shape":
+	-Created necessary variables to design the word frequency
+	-In the draw loop, extracted the text using loadStrings
+	-Calculated the frequency by splitting the text after the semicolon
+	-Calculated the wordNumber by splitting the text before the semicolon
+	-Used frequency and wordNumber to calculate a radius for an ellipse 
+	-Scaled the ellipse so that all the ellipses would show 
+	-Used a stroke weight of 2 
+	-Implemented noLoop()
+
+Creating "Novel Word Visualization":
+	-Created necessary variables to design the word frequency
+	-Extracted the text using loadStrings
+	-Created a new font for the text
+	-Created colors for the text
+	-Using the random function, selected random words with certain length 
+	-Used the draw loop to create colors for words based on their lengths 
+
+README & DESCRIPTION (Maria)
