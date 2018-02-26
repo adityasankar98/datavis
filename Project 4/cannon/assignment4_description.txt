@@ -1,0 +1,43 @@
+Ross Miglin (rdm2965), Godson Inikori (agi93) )Maria Krychniak (mck959): Description File
+
+What we created:
+-For this assignment we decided to create a UT longhorn football themed animation. We created Bevo, Smokey the Cannon, and a football along with the field. Each move/animate uniquely in their own way. Two instances of everything.
+
+BEVO (Godson)
+
+To create Bevo: 
+	-Created a group for the Bevo
+	-Created the PShapes by constructing vertices 
+	-Created each part of Bevo separately (used different PShapes for each)
+	-These PShapes became, "children" of the group
+		-Ex: Body, Head, Tail
+	-In the draw loop, used pushMatrix and popMatrix to manipulate the movements 	of the different shapes 
+
+
+SMOKEY THE CANNON (Maria)
+
+To create Smokey the Cannon: 
+	-Created a group for the Cannon
+	-Created the PShapes by constructing vertices 
+	-Created each part of the Cannon separately (used different PShapes for each)
+	-These PShapes became, "children" of the group
+		-Ex: Barrel, Wheel, Axel
+	-In the draw loop, used pushMatrix and popMatrix to manipulate the movements 	of the different shapes 
+	-Barrel moves up and down 
+	-Components of wheels rotate
+
+FOOTBALL & FIELD (Ross)
+
+To create the Football and Field: 
+	-Created a group for the Football
+	-Created the PShapes by constructing vertices 
+	-Created each part of the Football separately (used different PShapes for 		each)
+	-In the draw loop, used pushMatrix and popMatrix to manipulate the movements 	of the different shapes 
+	-Football and the laces spiral
+	-Also animated the background
+
+CHALLENGES & CHANGES:
+	-Moving things was a lot harder than we anticipated 
+	-Changed some components of elements
+
+README & DESCRIPTION (Maria)
