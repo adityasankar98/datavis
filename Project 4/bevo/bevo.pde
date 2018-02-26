@@ -1,6 +1,7 @@
 PShape bevo, head, neck, body, tail;
 
-float neckangle, neckangleChange, tailangle, tailangleChange;
+float neckangle, neckangle2, neckangleChange, neckangleChange2, tailangle, tailangleChange;
+int count, delay, delayTimer;
 
 void setup()
 {
@@ -161,44 +162,101 @@ void setup()
   bevo.addChild(tail);
 
   neckangle = 0;
+  neckangle2 = 0;
   tailangle = 0;
   neckangleChange = 0.065;
+  neckangleChange2 = 1;
   tailangleChange = 0.5;
+  count = 0;
+  delay = 0;
+  delayTimer = 0;
 }
 
 void draw()
 {
+  count += 1;
+  delay += delayTimer;
   neckangle -= neckangleChange;
+  neckangle2 -= neckangleChange2;
   if (neckangle < -25 || neckangle > 0)
   {
     neckangleChange = -neckangleChange;
+  }
+  if (neckangle2 < -25 || neckangle2 > 0)
+  {
+    neckangleChange2 = -neckangleChange2;
   }
   tailangle -= tailangleChange;
   if (tailangle < -10 || tailangle > 0)
   {
     tailangleChange = -tailangleChange;
   }
+  if (count % 386 < 1 && delay == 0)
+  {
+    neckangleChange = 0;
+    delayTimer = 1;
+  }
+  if (delay == 150)
+  {
+    neckangleChange = 0.065;
+    delay = 0;
+    delayTimer = 0;
+  }
   background(255,248,226);
+  
+  //Hungry Baby Bevo
+  pushMatrix();
+  scale(.4,.4);
+  translate(300,750);
   pushMatrix();
   translate(145,250);
   scale(2,2);
-  shape(bevo.getChild(2));
+  shape(bevo.getChild(2)); //body
   popMatrix();
-  //shape(bevo);
+  
   pushMatrix();
-  //scale(.75,.75);
   translate(350,370);
-  rotate(radians(neckangle));
-  shape(bevo.getChild(1));
+  rotate(radians(neckangle2));
+  shape(bevo.getChild(1)); //neck
   pushMatrix();
   translate(-240,-80);
-  shape(bevo.getChild(0));
+  shape(bevo.getChild(0)); //head
   popMatrix();
   popMatrix();
+  
   pushMatrix();
   translate(465,350);
   rotate(radians(-10));
   rotate(radians(tailangle));
-  shape(bevo.getChild(3));
+  shape(bevo.getChild(3)); //tail
+  popMatrix();
+  popMatrix();
+  
+  //Bevo Front
+  pushMatrix();
+  scale(.6,.6);
+  translate(300,335);
+  pushMatrix();
+  translate(145,250);
+  scale(2,2);
+  shape(bevo.getChild(2)); //body
+  popMatrix();
+  
+  pushMatrix();
+  translate(350,370);
+  rotate(radians(neckangle));
+  shape(bevo.getChild(1)); //neck
+  pushMatrix();
+  translate(-240,-80);
+  shape(bevo.getChild(0)); //head
+  popMatrix();
+  popMatrix();
+  
+  pushMatrix();
+  translate(465,350);
+  rotate(radians(-10));
+  rotate(radians(tailangle));
+  shape(bevo.getChild(3)); //tail
+  popMatrix();
   popMatrix();
 }
