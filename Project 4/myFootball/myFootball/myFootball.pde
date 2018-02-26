@@ -2,17 +2,18 @@ PShape myFootball, ball, line1, line2, line3, line4, line5, line6;
 float angle = 0;
 float xpos = 0;
 float ypos = 300;
-float yposScale = 2;
+
 void setup(){
 
   size(500, 500); 
   myFootball = createShape(GROUP);
   
-  //ellipseMode(CORNER);
+  //football
   color brown = color(#8B4513);
-  //stroke(brown);  
   ball = createShape(ARC, 60,35,70,40,0, 2*PI);
   ball.setFill(brown);
+  
+  //stitching
   color white = color(#FFFFFF);
   stroke(white);
   line1 = createShape(LINE, 40, 35, 80, 35);
@@ -30,7 +31,6 @@ void setup(){
   myFootball.addChild(line5);
   myFootball.addChild(line6);
   
-  //size(500, 500);
 }
 
 void draw(){
