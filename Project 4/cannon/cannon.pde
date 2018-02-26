@@ -1,6 +1,6 @@
 PShape cannon; 
 PShape barrel, wheel, top, top_circle, rect_1, rect_2, axel;
-float x, y, angle, change, angleChange, xChange, xPos;
+float x, y, cannonAngle, change, angleChange, xChange, xPos;
 
 void setup() {
   size(500, 500);
@@ -46,7 +46,7 @@ void setup() {
   cannon.addChild(axel);
   
   change = .3;
-  angle = 2.0;
+  cannonAngle = 2.0;
   angleChange = .8;
   x = 8;
   xChange = 5;
@@ -63,8 +63,8 @@ void draw(){
     xChange = -xChange;
   }
     
-  angle -= angleChange;
-  if (angle < 100 || angle > 0) {
+  cannonAngle -= angleChange;
+  if (cannonAngle < 100 || cannonAngle > 0) {
     angleChange = -angleChange;
   }
   
@@ -78,7 +78,7 @@ void draw(){
   pushMatrix();
   pushMatrix();
   translate(0, -5);
-  rotate(radians(angle));
+  rotate(radians(cannonAngle));
   shape(cannon.getChild(0));
   shape(cannon.getChild(1));
   translate(xPos,0);

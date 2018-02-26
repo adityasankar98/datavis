@@ -9,6 +9,9 @@ PShape bevo, head, neck, body, tail;
 float neckangle, neckangle2, neckangleChange, neckangleChange2, tailangle, tailangleChange;
 int count, delay, delayTimer;
 
+PShape cannon; 
+PShape barrel, wheel, top, top_circle, rect_1, rect_2, axel;
+float x, y, cannonAngle, change, angleChange, xChange, xPos;
 
 void setup(){
   //FOOTBALL
@@ -225,13 +228,58 @@ void setup(){
   fieldGoal.addChild(horizBar);
   fieldGoal.addChild(post);
   
-
+  smooth();
+  //frameRate(60);
+  
+  cannon = createShape(GROUP);
+  barrel = createShape();
+  barrel.beginShape();
+  barrel.strokeWeight(2);
+  barrel.fill(85, 56, 56);
+  barrel.vertex(100, 415);
+  barrel.vertex(100, 395);
+  barrel.vertex(175, 425);
+  barrel.vertex(175, 450);
+  barrel.vertex(100, 415);
+  barrel.endShape(CLOSE);
+  
+  top = createShape(ELLIPSE, 100, 405, 20, 20);
+  top.setFill(color(121, 121, 121)); 
+  
+  top_circle = createShape(ELLIPSE, 100, 405, 12, 12);
+  top_circle.setFill(color(0));
+   
+  wheel = createShape(ELLIPSE, 170, 440, 40, 40);
+  wheel.setFill(color(203, 105, 0));  
+  
+  rect_1 = createShape(RECT, 165, 425, 10, 30);
+  rect_1.setFill(color(85, 56, 56));
+  
+  rect_2 = createShape(RECT, 160, 435, 20, 10);
+  rect_2.setFill(color(85, 56, 56));
+  
+  axel = createShape(ELLIPSE, 170, 440, 10, 10);
+  axel.setFill(color(0)); 
+  
+  cannon.addChild(barrel);
+  cannon.addChild(top);
+  cannon.addChild(top_circle);
+  cannon.addChild(wheel);
+  cannon.addChild(rect_1);
+  cannon.addChild(rect_2);
+  cannon.addChild(axel);
+  
+  cannonAngle = 2.0;
+  angleChange = 0.5;
+  x = 8;
+  xChange = 1;
+  xPos = 0;
+  
 }
 
 void draw(){
   color blue = color(#ADD8E6);
-  background(blue); 
-  
+  background(blue);
   
   pushMatrix();
   //translate(100,100);
@@ -243,6 +291,63 @@ void draw(){
   stroke(green);
   fill(green);
   rect(0, 420, 500, 500);
+  //
+  translate(0,0);
+  
+  x -= xChange;
+  if (x < 10 || x > 0){
+    xChange = -xChange;
+  }
+    
+  cannonAngle -= angleChange;
+  if (cannonAngle < 100 || cannonAngle > 0) {
+    angleChange = -angleChange;
+  }
+  
+  if (xPos < 50 && xPos > -50){
+    xPos -= 5;
+    delay(100);
+  }
+  else{
+    xPos = 0;
+  }
+  
+  pushMatrix();
+  pushMatrix();
+  translate(0, -5);
+  //stroke(#000000);  
+  rotate(radians(cannonAngle));
+  shape(cannon.getChild(0));
+  shape(cannon.getChild(1));
+  translate(xPos,0);
+  shape(cannon.getChild(2));
+  popMatrix();
+  translate(170, 445);
+  rotate(radians(frameCount * 15));
+  translate(-170,-440);
+  shape(cannon.getChild(3));
+  shape(cannon.getChild(4));
+  shape(cannon.getChild(5));
+  shape(cannon.getChild(6));
+  popMatrix();
+  
+  pushMatrix();
+  translate(xPos,0);
+  translate(-100, 325);
+  scale(.5);
+  rotate(radians(-30));
+  pushMatrix();
+  translate(x, -5);
+  shape(cannon.getChild(0));
+  shape(cannon.getChild(1));
+  shape(cannon.getChild(2));
+  popMatrix();
+  translate(x, -5);
+  shape(cannon.getChild(3));
+  shape(cannon.getChild(4));
+  shape(cannon.getChild(5));
+  shape(cannon.getChild(6));
+  popMatrix();
   
   count += 1;
   delay += delayTimer;
@@ -341,14 +446,37 @@ void draw(){
   //myFootball.translate(20,-10);
   popMatrix();
   angle += 15;
-  xpos += 1;
+  xpos += 3;
 
   if(xpos>=width/2){
-    ypos += 1;
+    ypos += 3;
   }
   else{
-    ypos = ypos -1;  
-  }  
+    ypos = ypos -3;  
+  } 
+  
+  pushMatrix();
+  translate(xpos, ypos);
+  //rotate(radians(angle));  
+  scale(0.8);
+  //translate(100,100);
+  translate(-60,100);
+  shape(myFootball);
+  //myFootball.translate(20,-10);
+  popMatrix();
+  angle += 15;
+  if(xpos>=width){
+    xpos=0;
+  }
+  xpos += 3;
+
+  if(xpos>=width/2){
+    ypos += 3;
+  }
+  else{
+    ypos = ypos -3;  
+  } 
+  
   
 
 }
