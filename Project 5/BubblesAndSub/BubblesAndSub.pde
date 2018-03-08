@@ -1,6 +1,6 @@
-PShape bubbles, submarine; 
+PShape bubbles, submarine, hook, fishingLine; 
 PShape bubble, subCone, subTelescope, subWindow, subMotor;
-float xBubble, yBubble, xSubmarine;
+float xBubble, yBubble, xSubmarine, yHook, angleHook;
 
 void setup() {
   
@@ -9,6 +9,13 @@ void setup() {
   submarine = loadShape("Deep Blue Sub.obj");
   submarine.scale(12, 12, 12);
   submarine.setFill(color(240, 203, 17));
+  
+  hook = loadShape("fish_hook.obj");
+  hook.scale(.2, .2, .2);
+  hook.setFill(color(160, 159, 155));
+  
+  fishingLine = createShape(RECT, 0, 0, 1, 200);
+  fishingLine.setFill(color(0));
   
   bubbles = createShape(GROUP);
   bubble = createShape(SPHERE, 7);
@@ -19,8 +26,9 @@ void setup() {
   
   yBubble = 0;
   xBubble = 0;
+  yHook = 0;
+  angleHook = 0;
   xSubmarine = 0;
-  
 }
 
 void draw(){
@@ -29,7 +37,7 @@ void draw(){
   translate(0, 0);
   
   if (yBubble < 400 && yBubble > -350){
-    yBubble -= 2;
+    yBubble -= .75;
   }
   else{
     yBubble = 399;
@@ -40,6 +48,20 @@ void draw(){
   }
   else {
     xBubble -=2;
+  }
+  
+  if (millis()/1000 % 2 == 0){
+    yHook +=.5;
+  }
+  else {
+    yHook -=.5;
+  }
+  
+  if (millis()/1000 % 2 == 0){
+    angleHook +=.75;
+  }
+  else {
+    angleHook -=.75;
   }
   
   if (xSubmarine < 500 && xSubmarine > -350){
@@ -78,11 +100,24 @@ void draw(){
   popMatrix();
   
   pushMatrix();
+  translate(width/2 - 200, height/2 - 300, 0);
+  translate(0, yHook, 0);
+  shape(fishingLine);
+  popMatrix();
+  
+  pushMatrix();
+  translate(width/2 - 200, height/2 - 100, 0);
+  translate(0, yHook, 0);
+  rotateZ(PI);
+  rotate(radians(angleHook));
+  shape(hook);
+  popMatrix();
+  
+  pushMatrix();
   translate(width/2 - 150, height/2 - 150, 0);
   translate(xSubmarine, 0, 0);
   rotateZ(PI);
   rotateY(PI);
   shape(submarine);
-  popMatrix();
-  
+  popMatrix();  
 }
