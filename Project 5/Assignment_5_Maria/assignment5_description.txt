@@ -1,0 +1,39 @@
+Ross Miglin (rdm2965), Godson Inikori (agi93) )Maria Krychniak (mck959): Description File
+
+What we created:
+-For this assignment we decided to create a underwater SpongeBob themed animation. We created Patrick, SpongeBob, a submarine, bubbles, and an underwater scene. Each move/animate uniquely in their own way.
+
+SPONGEBOB (Godson)
+
+To create SPONGEBOB: 
+	-Created a class for Spongebob
+	-Downloaded Spongebob as a 3D shape 
+	-Created a class for arms of Spongebob and legs of SpongeBob and made them 		sway
+	-Created 3D road for Spongebob
+	-Made Spongebob bounce up and down
+
+
+SUBMARINE and BUBBLES and FISHING LINE (Maria)
+
+To create SUBMARINE and BUBBLES and FISHING LINE: 
+	-Created a class for Submarine
+	-Created a class for Fishing Hook
+	-Created a class for Bubbles
+	-Downloaded Submarine as a 3D shape 
+	-Created Fishing Line as a 3D shape 
+	-Created Bubbles as a 3D shape 
+	-Bubbles float up, submarine swims to the right, fishing line and fishing 		hook move up and down, fishing hook rotates
+
+PATRICK (Ross)
+
+To create PATRICK: 
+	-Created a class for Patrick
+	-Downloaded Patrick as a 3D shape 
+	-Made Patrick twirl and move to the left 
+	-Ross also put everything together (compiled all code to one file)
+
+CHALLENGES & CHANGES:
+	-Kept everything mostly the same 
+	-Got innovative with downloading shapes off of TurboSquid 
+
+README & DESCRIPTION (Maria)
