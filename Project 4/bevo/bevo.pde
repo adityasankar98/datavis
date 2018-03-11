@@ -162,7 +162,7 @@ void setup()
   bevo.addChild(tail);
 
   neckangle = 0;
-  neckangle2 = 0;
+  neckangle2 = -11;
   tailangle = 0;
   neckangleChange = 0.065;
   neckangleChange2 = 1;
@@ -182,7 +182,7 @@ void draw()
   {
     neckangleChange = -neckangleChange;
   }
-  if (neckangle2 < -25 || neckangle2 > 0)
+  if (neckangle2 < -25 || neckangle2 > -10)
   {
     neckangleChange2 = -neckangleChange2;
   }
