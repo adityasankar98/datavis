@@ -24,11 +24,9 @@ class Patrick {
     if(rotation>=PI/2){
       //rotation =- rotation;
       rotateRight = false;
-      println("reset rotation");
     }
     if(rotation<=-PI/2){
       rotateRight = true;
-      println("reset rotation");
     }
     if(rotateRight){
       rotation+=PI/32;
