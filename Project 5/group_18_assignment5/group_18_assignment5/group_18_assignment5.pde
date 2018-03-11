@@ -1,15 +1,27 @@
+//Godson's code
 float angle = 0;
 float xpos = 650, ypos = 0, yHop = 1;
 int count = 0;
 PImage texture, spongeFace, spongeRoad;
 PShape sponge, face, road;
 cylinder armL, armR, legL, legR;
+
+//Ross's code
 Patrick p1;
 
+//Maria's code
+bubble Bubble;
+//submarine Submarine;
+//fishing_line Fishing_Line;
+//hook Hook;
+
+
 void setup()
-{
+{  
   size(500, 300, P3D);
+  //Ross's
   p1 = new Patrick(100, height - 200, 60);
+  //Godson's
   texture = loadImage("spongeSkin.jpg");
   spongeRoad = loadImage("spongeRoad.jpg");
   armL = new cylinder(radians(-44));
@@ -27,6 +39,8 @@ void setup()
 }
 void draw()
 {
+
+  //Godson's
   count += 1;
   camera(width/2,25,400,250,150,0,0,1,0);
   xpos -= 2;
@@ -114,6 +128,19 @@ void draw()
   popMatrix();
   popMatrix();
   popMatrix();
-  
+  //Ross's
   p1.move();
+  
+  translate(0, 0);
+  Bubble = new bubble(width/2, height/2, 7);
+  Bubble.animate();
+  
+  Bubble = new bubble(width/2 + 100, height/2 + 100, 7);
+  Bubble.animate();
+
+  Bubble = new bubble(width/2 + 150, height/2 - 100, 7);
+  Bubble.animate();
+  
+  Bubble = new bubble(width/2 + 100, height/2 - 150, 7);
+  Bubble.animate();  
 }
