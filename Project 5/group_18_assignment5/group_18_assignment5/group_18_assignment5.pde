@@ -11,9 +11,9 @@ Patrick p1;
 
 //Maria's code
 bubble Bubble;
-//submarine Submarine;
-//fishing_line Fishing_Line;
-//hook Hook;
+submarine Submarine;
+fishing_line Fishing_Line;
+hook Hook;
 
 
 void setup()
@@ -36,6 +36,11 @@ void setup()
    spongeFace = loadImage("spongeFace.png");
    face = createShape(RECT, 0,0,80,80);
    face.setTexture(spongeFace);
+   
+   //Maria's
+   Fishing_Line = new fishing_line(width/2 - 200, height/2 - 300); 
+   Hook = new hook(width/2 - 200, height/2 - 100);
+   Submarine = new submarine(width/2 - 150, height/2 - 150);   
 }
 void draw()
 {
@@ -143,4 +148,8 @@ void draw()
   
   Bubble = new bubble(width/2 + 100, height/2 - 150, 7);
   Bubble.animate();  
+  
+  Fishing_Line.animate(); 
+  Hook.animate(); 
+  Submarine.animate();   
 }

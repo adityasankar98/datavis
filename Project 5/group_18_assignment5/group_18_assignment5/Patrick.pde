@@ -32,43 +32,17 @@ class Patrick {
     }
     if(rotateRight){
       rotation+=PI/32;
-      println("rotateRight");
-      /*
-      if(rotation>= PI/2||rotation<=-PI/2){
-        rotation-=PI/6;
-        rotateRight = false;
-      }
-      */
       rotateY(rotation);
     }
     else{
       rotation-=PI/32;
-      println("rotateLeft");
-      /*
-      if(rotation>= 3*PI/2||rotation<=PI/2){
-        rotation+=PI/6;
-        rotateRight = true;
-      }
-      */
       rotateY(rotation);
     }
-    /*
-    if(rotation>= 3*PI/2||rotation<=PI/2){
-      rotation+=PI/6;
-    }
-    else{
-      rotation-=PI/6;
-    }
-    */
-    //rotation += PI/2;
-    //rotation = -rotation;
     scale(25);
     shape(Patrick, 0, 0, Patrick.width, Patrick.height);
     popMatrix();
     if (xPatrick<(width/2 + 60)){
       xPatrick += 1;
-      //yPatrick += 15;
-      //yPatrick = -yPatrick;
     }
   }
 }
