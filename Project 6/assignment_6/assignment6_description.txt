@@ -1,0 +1,34 @@
+Ross Miglin (rdm2965), Godson Inikori (agi93) )Maria Krychniak (mck959): Description File
+
+What we created:
+-For this assignment we decided to create an outdoor scene with different objects simulating different forces.
+
+HAND AND YOYO (Godson)
+
+To create the HAND AND YOYO: 
+	-Created a class for YoYo
+	-Created a class for Hand
+	-Created the hand and yoyo design
+	-Set a timer for the hand and the yoyo
+	-The hand and the yoyo move up and down to simulate a real life gravity and 	spring action when playing with a yoyo
+
+
+GRASS (Maria)
+
+To create GRASS: 
+	-Created a class for Grass
+	-Created the grass design
+	-The grass moves when mouse is pressed to simulate the spring force of wind 	acting upon nature
+
+POGO STICK (Ross)
+
+To create the POGO STICK: 
+	-Created a class for Pogo stick
+	-Created the pogo stick and hand design
+	-The pogo stick and person moves when mouse is pressed to simulate the spring 	force of a pogo stick and gravity
+
+CHALLENGES & CHANGES:
+	-Kept everything mostly the same 
+	-Had to be creative on how to make the simulation interactive  
+
+README & DESCRIPTION (Maria)
