@@ -1,4 +1,4 @@
-Ross Miglin (rdm2965), Godson Inikori (agi93) )Maria Krychniak (mck959): Description File
+Ross Miglin (rdm2965), Godson Inikori (agi93) Maria Krychniak (mck959): Description File
 
 What we created:
 -For this assignment we decided to create an outdoor scene with different objects simulating different forces.
@@ -19,6 +19,7 @@ To create GRASS:
 	-Created a class for Grass
 	-Created the grass design
 	-The grass moves when mouse is pressed to simulate the spring force of wind 	acting upon nature
+
 
 POGO STICK (Ross)
 
