@@ -33,3 +33,5 @@ CHALLENGES & CHANGES:
 	-Had to be creative on how to make the simulation interactive  
 
 README & DESCRIPTION (Maria)
+
+ANIMATION ARTIFACT (Ross)
