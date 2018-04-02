@@ -10,23 +10,21 @@ To create the HAND AND YOYO:
 	-Created a class for Hand
 	-Created the hand and yoyo design
 	-Set a timer for the hand and the yoyo
-	-The hand and the yoyo move up and down to simulate a real life gravity and 	spring action when playing with a yoyo
-
+	-The hand and the yoyo move up and down to simulate a real life gravity and spring action when playing with a yoyo
 
 GRASS (Maria)
 
 To create GRASS: 
 	-Created a class for Grass
 	-Created the grass design
-	-The grass moves when mouse is pressed to simulate the spring force of wind 	acting upon nature
-
+	-The grass moves when mouse is pressed to simulate the spring force of wind acting upon nature
 
 POGO STICK (Ross)
 
 To create the POGO STICK: 
 	-Created a class for Pogo stick
 	-Created the pogo stick and hand design
-	-The pogo stick and person moves when mouse is pressed to simulate the spring 	force of a pogo stick and gravity
+	-The pogo stick and person moves when mouse is pressed to simulate the spring force of a pogo stick and gravity
 
 CHALLENGES & CHANGES:
 	-Kept everything mostly the same 
