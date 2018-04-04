@@ -1,6 +1,7 @@
-String id;
-String cardColor;
+String id, cardColor;
+float xPos, yPos;
 color green;
+Card [] cards;
 
 //Timer code begins
 String[] fontlist = PFont.list();
@@ -16,7 +17,12 @@ void setup(){
   green = color(#228B22);
   size(500,500);
   
-  c1 = new Card("A1", "0000FF");
+  c1 = new Card("A1", "0000FF", 50, 50);
+  
+  cards = new Card[12];
+  for (Card card: cards){
+    card.display();
+  }
   
   //Timer code begins
   courier = createFont("courier",32);
@@ -25,9 +31,13 @@ void setup(){
 }
 
 void draw(){
-  c1.display();
+
   background(green);
+  /*
+  for (Card card: cards){
   
+  }
+  */
   //Timer code begins
   frame++;
   if (frame == 60)
@@ -37,7 +47,7 @@ void draw(){
   }
   text(timeDisplay+nf(time,2),width-300,32);
   //Timer code ends
-  
+  c1.display();  
 }
 
 void keyPressed()

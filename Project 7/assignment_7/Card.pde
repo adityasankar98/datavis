@@ -1,12 +1,14 @@
 class Card{
   PShape card;
-  String _id;
-  String _cardColor;
+  String _id, _cardColor;
+  float _xPos, _yPos;
   
-  Card(String _id, String _cardColor){
+  Card(String _id, String _cardColor, float _xPos, float _yPos){
     id = _id;
+    xPos = _xPos;
+    yPos = _yPos;
     int intC = unhex(_cardColor);
-    card = createShape(RECT, 50, 50, 80, 100);
+    card = createShape(RECT, xPos, yPos, 80, 100);
     card.setFill(intC);
   }
   
