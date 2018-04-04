@@ -25,9 +25,8 @@ void setup(){
 }
 
 void draw(){
-  c1.display();
   background(green);
-  
+  c1.display();
   //Timer code begins
   frame++;
   if (frame == 60)
