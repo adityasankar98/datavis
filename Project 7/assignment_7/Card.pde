@@ -10,7 +10,7 @@ class Card{
     _id = id;
     _xPos = xPos;
     _yPos = yPos;
-    //int intC = unhex(_cardColor);
+
     card = createShape(RECT, xPos, yPos, 80, 100);
     card.setStroke(255);
     String shape = id.substring(0,id.length()-1);
@@ -73,6 +73,10 @@ class Card{
   void flip()
   {
     figure.setFill(0);
+  }
+  void flipBack()
+  {
+    figure.setFill(255);
   }
   
   int check(StringList deck)

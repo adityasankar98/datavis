@@ -1,6 +1,7 @@
 String id, cardColor;
 float xPos, yPos;
 color green;
+Card firstCard, secondCard;
 ArrayList<Card> cards;
 String[] ids = {"circle1","circle2","square1","square2","triangle1","triangle2",
                 "star1","star2","rect1","rect2","ellipse1","ellipse2"};
@@ -8,13 +9,13 @@ StringList deck = new StringList();
 
 //Timer code begins
 String[] fontlist = PFont.list();
-int time, frame, delta =1, attempt = 0, match1Index = 0, match2Index = 0;
+int time, frame, delta =1, attempt = 0, match1Index = 0, match2Index = 0, numTries;
+boolean match;
 
 PFont courier;
 String timeDisplay = "Time Elapsed: ";
 //Timer code ends
 
-//Card c1;
 
 void setup(){
   green = color(#228B22);
@@ -26,7 +27,6 @@ void setup(){
     deck.append(ids[i]);
   }
   
-  //c1 = new Card("A1", "0000FF", 50, 50);
   int x = 50;
   int y = 50;
   int cardsInRow = 0;
@@ -42,7 +42,6 @@ void setup(){
     cards.add(new Card(id, x, y));
     x+=110;
     cardsInRow += 1;
-    //y+=50;
   }
   
   //Timer code begins
@@ -52,15 +51,8 @@ void setup(){
 }
 
 void draw(){
-
   background(green);
-  /*
-  for (Card card: cards){
   
-  }
-  */
-  background(green);
-  //c1.display();
   //Timer code begins
   frame++;
   if (frame == 60)
@@ -69,12 +61,12 @@ void draw(){
     frame = 0;
   }
   text(timeDisplay+nf(time,2),width-300,32);
-  //Timer code ends
-  //c1.display();  
+  //Timer code ends 
+  
   for (Card card: cards){
-    //println(card._id);
     card.display();
   }  
+  
 }
 
 void keyPressed()
@@ -99,20 +91,29 @@ void keyPressed()
 
 void mousePressed()
 {
+  //flip back unmatched pairs
+  if (match == false && numTries > 0 && attempt == 0)
+  {
+    firstCard.flipBack();
+    secondCard.flipBack();
+  }
   //Remove matching pairs
   for (Card card: cards)
   {
     if (card.isOver())
     {
+      numTries++;
       attempt++;
       card.flip();
       int idIndex = card.check(deck);
       if (attempt == 1)
       {
+        firstCard = card;
         match1Index = idIndex;
       }
       else
       {
+        secondCard = card;
         match2Index = idIndex;
       }
     }
@@ -126,6 +127,7 @@ void mousePressed()
     String shape2 = card2.substring(0,card2.length()-1);
     if (shape1.equals(shape2))
     {
+      match = true;
       cards.remove(match1Index);
       deck.remove(match1Index);
       if (match2Index > match1Index)
@@ -138,6 +140,10 @@ void mousePressed()
         cards.remove(match2Index);
         deck.remove(match2Index);
       }
+    }
+    else
+    {
+      match = false;
     }
     attempt = 0;
   }
