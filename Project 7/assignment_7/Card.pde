@@ -4,7 +4,7 @@ class Card{
   PShape card, figure;
   String _id, _cardColor;
   float _xPos, _yPos;
-  int trial;
+  int trial, figureFill = 255;
   
   Card(String id, float xPos, float yPos){
     _id = id;
@@ -40,7 +40,7 @@ class Card{
       figure = createShape(RECT,_xPos+25,_yPos+20,30,60);
       figure.setStroke(255);
     }
-    if (shape.equals("ellipse"))
+    else if (shape.equals("ellipse"))
     {
       figure = createShape(ELLIPSE,_xPos+40,_yPos+50,60,30);
       figure.setStroke(255);
@@ -72,11 +72,11 @@ class Card{
   
   void flip()
   {
-    figure.setFill(0);
+    figureFill = 0;
   }
   void flipBack()
   {
-    figure.setFill(255);
+    figureFill = 255;
   }
   
   int check(StringList deck)
@@ -91,7 +91,53 @@ class Card{
     }
     return index;
   }
+  
+  void update(StringList deck, int i)
+  {
+    _id = deck.get(i);
+    String id = deck.get(i);
+    String shape = id.substring(0,id.length()-1);
+    if (shape.equals("circle"))
+    {
+      figure = createShape(ELLIPSE,_xPos+40,_yPos+50,30,30);
+      figure.setStroke(255);
+      figure.setFill(figureFill);
+    }
+    else if (shape.equals("square"))
+    {
+      figure = createShape(RECT,_xPos+25,_yPos+35,30,30);
+      figure.setStroke(255);
+      figure.setFill(figureFill);
+    }
+    else if (shape.equals("triangle"))
+    {
+      figure = createShape(TRIANGLE,_xPos+40,_yPos+35,_xPos+20,_yPos+61,_xPos+60,_yPos+61);
+      figure.setStroke(255);
+      figure.setFill(figureFill);
+    }
+    else if (shape.equals("star"))
+    {
+      star(_xPos+40,_yPos+50,10,25,5);
+      figure = star;
+      figure.setStroke(255);
+      figure.setFill(figureFill);
+    }
+    else if (shape.equals("rect"))
+    {
+      figure = createShape(RECT,_xPos+25,_yPos+20,30,60);
+      figure.setStroke(255);
+      figure.setFill(figureFill);
+    }
+    else if (shape.equals("ellipse"))
+    {
+      figure = createShape(ELLIPSE,_xPos+40,_yPos+50,60,30);
+      figure.setStroke(255);
+      figure.setFill(figureFill);
+    }
+  }
 }
+
+
 
 
 
