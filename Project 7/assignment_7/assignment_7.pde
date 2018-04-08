@@ -92,13 +92,13 @@ void draw(){
   }
   else if (gameOver)
   {
-    PShape outline = createShape(RECT,width/2-120,370,250,50);
+    PShape outline = createShape(RECT,(width/2)-130,400,250,50);
     outline.setStroke(0);
     outline.setFill(color(#69897E));
     shape(outline);
     fill(255,75,75);
     boardDisplay = scoreDisplay+nf(60-time-penalty,2);
-    text(boardDisplay,(width/2)-125,430);
+    text(boardDisplay,(width/2)-110,430);
   }
 }
 
