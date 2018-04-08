@@ -98,7 +98,7 @@ void draw(){
     shape(outline);
     fill(255,75,75);
     boardDisplay = scoreDisplay+nf(60-time-penalty,2);
-    text(boardDisplay,(width/2)-100,400);
+    text(boardDisplay,(width/2)-125,430);
   }
 }
 
