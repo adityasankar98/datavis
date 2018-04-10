@@ -1,0 +1,34 @@
+Ross Miglin (rdm2965), Godson Inikori (agi93) Maria Krychniak (mck959): Description File
+
+What we created:
+-For this assignment we decided to the card game of memory. Cards are flipped to try and find a match while a timer is going so it's important to have a good memory and be quick. You lose if you don't get the matches in time and you win if you clear all the cards (find the matches).
+
+TIMER/BUTTONS/GAME RULES/BUG FIXING (Godson)
+
+To create the TIMER/BUTTONS: 
+	-Created the timer
+	-Created a lot of the buttons that the user can interact with and the shapes
+		—"S", "R", Spacebar, Mouse-click
+	-Created the method of scoring 
+	-Helped with match and cards
+
+MATCH/GAME RULES/BUG FIXING (Maria)
+
+To create MATCH: 
+	-Created the function for when there are matches (cards disappear from the 		boards)
+	-If not a match then the user continues guessing 
+	-Added a hint function but then became to complicated and added a different 	button as a replacement ("S")
+
+CARDS/GAME RULES/BUG FIXING (Ross)
+
+To create the CARDS: 
+	-Created a class for Cards
+	-Created the visual for the cards 
+	_Created how the cards were laid out on the screen 
+
+CHALLENGES & CHANGES:
+	-Took a lot to figure out how to even start and how to implement the rules
+	-Had to be creative on how to make the simulation interactive 
+	-Was much harder and more complicated than anticipated  
+
+README & DESCRIPTION (Maria)
