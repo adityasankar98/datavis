@@ -125,6 +125,7 @@ void keyPressed()
   }
   else if (key == 'r')
   {
+    gameOver = false;
     time = 0;
     for (int i = 0; deck.size() > 0; i++)
     {
@@ -140,6 +141,7 @@ void keyPressed()
     int y = 50;
     int cardsInRow = 0;
     int maxCardsInRow = 4;
+    fill(255);
     cards = new ArrayList<Card>();
     for(int i =0; i< 12; i++){
       if(cardsInRow >= maxCardsInRow){
@@ -157,11 +159,17 @@ void keyPressed()
   }
   //Timer code ends
   
+  
 }
 
 void mousePressed()
 {
   //flip back unmatched pairs
+  delta = 1;
+  if (time == 0)
+  {
+    deck.shuffle();
+  }
   if (match == false && numTries > 0 && attempt == 0)
   {
     firstCard.flipBack();
