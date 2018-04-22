@@ -1,0 +1,35 @@
+Ross Miglin (rdm2965), Godson Inikori (agi93) Maria Krychniak (mck959): Description File
+
+What we created:
+-For this assignment we decided to create a bar graph based off of litter sizes, brain weights, body weights. We created the interactive visual based off of republican votes in the USA, and then the RSS Reader. 
+
+UNIQUE VISUALIZATION/RSS READER (Godson)
+
+To create the UNIQUE VISUALIZATION/RSS READER: 
+	-Created a map of the United States 
+	-Created nodes class 
+	-Placed nodes on each stat	
+	-Nodes change color over time to represent Republican votes 
+	-RSS Reader
+
+BAR GRAPH/RSS READER (Maria)
+
+To create BAR GRAPH/RSS READER: 
+	-Created bar charts for all three data points
+	-Made interactivity with the bar graphs (labels)
+	-Created different colors for data
+	-RSS Reader
+
+BAR GRAPH/RSS READER (Ross)
+
+To create the BAR GRAPH/RSS READER: 
+	-Helped import CSV fie for bar chart 
+	-RSS Reader 
+
+
+CHALLENGES & CHANGES:
+	-Took a lot to figure out 
+	-Had to be creative on how to make the simulation interactive 
+	-Was much harder and more complicated than anticipated  
+
+README & DESCRIPTION (Maria)
