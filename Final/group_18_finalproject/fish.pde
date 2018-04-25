@@ -1,28 +1,21 @@
 class Fish {
-  PImage[] imgs;
   PImage img;
-  int imgCt;
-  int frame;
+  int type;
+  float x, y;
   
   //Credit to Freepik at flaticon.com for images
   
-  Fish(String folder, int ct) {
-    imgCt = ct;
-    imgs = new PImage[imgCt];
-
-    /*for (int i = 0; i < imgCt; i++) {
-      String file = folder + ".png";//+ nf(i, 2) + ".png";
-      imgs[i] = loadImage(file);
-    }*/
-    
-    String file = folder +".png";
+  Fish(String folder, int type) {
+    String file = folder + "0" + type +".png";
     img = loadImage(file);
+    y = random(0,800);
   }
 
   void display() {
-    /*frame = (frame + 1) % imgCt;
-    image(imgs[frame], x, y);*/
     img.resize(50,50);
-    image(img,mouseX,mouseY);
+    
+    //if {x> 
+    
+    image(img,x,y);
   }
 }

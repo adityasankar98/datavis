@@ -2,7 +2,8 @@ Fish nemo;
 
 void setup(){
   size(1000, 800);
-  nemo = new Fish("fish_00",1);
+  int type = int(random(0,7));
+  nemo = new Fish("fish_", type);
 }
 
 void draw(){
