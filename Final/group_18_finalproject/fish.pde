@@ -1,4 +1,5 @@
 class Fish {
+  int speed;
   PImage img;
   int type;
   float x, y;
@@ -9,6 +10,7 @@ class Fish {
     String file = folder + "0" + type +".png";
     img = loadImage(file);
     y = random(0,800);
+    speed = int(random(1,5));
   }
 
   void display() {
@@ -17,7 +19,7 @@ class Fish {
     if (x>1000) {
       x = 0;
     } else {
-      x += 1;
+      x += speed;
     }
     
     image(img,x,y);

@@ -1,0 +1,9 @@
+class fish{
+  int _speed;
+  float _xPos, _yPos;
+  
+  fish(int speed){
+    _speed = speed;
+  }
+
+}
