@@ -14,7 +14,11 @@ class Fish {
   void display() {
     img.resize(50,50);
     
-    //if {x> 
+    if (x>1000) {
+      x = 0;
+    } else {
+      x += 1;
+    }
     
     image(img,x,y);
   }
