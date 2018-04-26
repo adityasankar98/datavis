@@ -45,6 +45,7 @@ class Fish {
     }
     if(swimRight){
       if (x>1000) {
+        y = random(0,800);
         x = 0;
       } else {
         x += speed;
@@ -52,6 +53,7 @@ class Fish {
     }
     else{
       if (x < 0){
+        y = random(0,800);
         x = 1000;
       } else {
         x -= speed;

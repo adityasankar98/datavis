@@ -1,19 +1,36 @@
-Fish fish1, fish2, fish3;
+Fish nemo;
+ArrayList<Fish> fishes;
+int numEnemies, dir;
 
 void setup(){
   size(1000, 800);
-  int type1 = int(random(0,7));
-  int type2 = int(random(0,17));
-  int type3 = int(random(0,17));
-  fish1 = new Fish("fish_", type1);
-  fish2 = new Fish("fish_", type2);
-  fish3 = new Fish("fish_", type3);
+  fishes = new ArrayList<Fish>();
+  numEnemies = 2;
+  enemyArray();
 }
 
 void draw(){
-  background(255);
-  fish1.display(); 
-  fish2.display();
-  fish3.display();
+    background(255);
+    enemyDisplay();
   
+}
+
+void enemyArray(){
+  for (int i=0; i <numEnemies; i++) {
+    int type = int(random(1,18));
+    fishes.add(new Fish("fish_", type));
+  }
+}
+
+void enemyDisplay(){
+  for (int i=0; i < numEnemies; i++) {
+    Fish enemy = fishes.get(i);
+    enemy.display();
+  }
+  
+  if (random(300) < 1){
+    int type = int(random(1,7));
+    fishes.add(new Fish("fish_", type));
+    numEnemies += 1;
+  }
 }
