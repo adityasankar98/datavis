@@ -1,3 +1,4 @@
+//Fish code
 Fish nemo;
 ArrayList<Fish> fishes;
 int numEnemies, dir;
@@ -14,6 +15,8 @@ submarine Submarine;
 
 void setup(){
   size(1000, 800);
+  
+  //Fish code
   fishes = new ArrayList<Fish>();
   numEnemies = 2;
   enemyArray();
@@ -26,12 +29,35 @@ void setup(){
 }
 
 void draw(){
-  
-  
-  
+
    //Background code
   background(90, 165, 255);
-  translate(0, 0);
+  backgroundAnimation();
+  enemyDisplay();
+
+}
+
+void enemyArray(){
+  for (int i=0; i <numEnemies; i++) {
+    int type = int(random(1,18));
+    fishes.add(new Fish("fish_", type));
+  }
+}
+
+void enemyDisplay(){
+  for (int i=0; i < numEnemies; i++) {
+    Fish enemy = fishes.get(i);
+    enemy.display();
+  }
+  
+  if (random(300) < 1){
+    int type = int(random(1,7));
+    fishes.add(new Fish("fish_", type));
+    numEnemies += 1;
+  }
+}
+
+void backgroundAnimation(){
   
   //Middle Bubbles
   Bubble = new bubble(width/2, height/2, 15, 15);
@@ -122,32 +148,5 @@ void draw(){
   Other_Plants.animate();
   
   Hook.animate(); 
-  Submarine.animate();
-  
-  
-  
-  enemyDisplay();
-    
-    
-  
-}
-
-void enemyArray(){
-  for (int i=0; i <numEnemies; i++) {
-    int type = int(random(1,18));
-    fishes.add(new Fish("fish_", type));
-  }
-}
-
-void enemyDisplay(){
-  for (int i=0; i < numEnemies; i++) {
-    Fish enemy = fishes.get(i);
-    enemy.display();
-  }
-  
-  if (random(300) < 1){
-    int type = int(random(1,7));
-    fishes.add(new Fish("fish_", type));
-    numEnemies += 1;
-  }
+  Submarine.animate(); 
 }
