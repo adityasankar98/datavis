@@ -25,7 +25,7 @@ class bubble {
     popMatrix();
     
     if (yBubble < 400 && yBubble > -800){
-      yBubble -= .5;
+      yBubble -= .2;
     }
     else{
       yBubble = 399;

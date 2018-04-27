@@ -24,8 +24,8 @@ class submarine {
     
     popMatrix();
     
-    if (xSubmarine < 500 && xSubmarine > -350){
-      xSubmarine += 5;
+    if (xSubmarine < 1000 && xSubmarine > -350){
+      xSubmarine += 3;
     }
     else{
       xSubmarine = -150;
