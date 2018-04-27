@@ -1,7 +1,6 @@
 //Fish code
 Player nemo;
 ArrayList<Fish> fishes;
-ArrayList<Fish> players;
 int numEnemies, dir;
 
 //Background code
@@ -19,11 +18,9 @@ void setup(){
   
   //Fish code
   fishes = new ArrayList<Fish>();
-  nemo = new Player();
-  players = new ArrayList<Fish>();
-  players.add(new Fish("fish_",0));
-  numEnemies = 3;
+  numEnemies = 2;
   enemyArray();
+  nemo = new Player();
   
   //Background code
   Fishing_Line = new fishing_line(width/2 - 400, height/2 - 415);
@@ -38,7 +35,6 @@ void draw(){
   background(90, 165, 255);
   backgroundAnimation();
   enemyDisplay();
-  //playersDisplay();
   nemo.display();
 
 }
@@ -55,8 +51,7 @@ void enemyDisplay(){
     Fish enemy = fishes.get(i);
     enemy.display();
     if (enemy.collision()) {
-      fishes.remove(i);
-      numEnemies -= 1;
+      rect(nemo.x, nemo.y, nemo.img.width, nemo.img.height);
     }
   }
   
@@ -65,12 +60,6 @@ void enemyDisplay(){
     fishes.add(new Fish("fish_", type));
     numEnemies += 1;
   }
-}
-
-void playersDisplay()
-{
-  Fish player = players.get(0);
-  player.display();
 }
 
 void backgroundAnimation(){
@@ -83,7 +72,7 @@ void backgroundAnimation(){
   Bubble = new bubble(width/2 + 150, height/2 - 100, 15, 15);
   Bubble.animate();
   Bubble = new bubble(width/2 + 100, height/2 - 150, 15, 15);
-  Bubble.animate();  
+  Bubble.animate(); 
   
   //Left Bubbles
   Bubble = new bubble(width/2 - 400, height/2 + 50, 15, 15);

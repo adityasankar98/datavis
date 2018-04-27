@@ -98,4 +98,17 @@ class Fish {
     
     image(img,x,y);
   }
+  
+  boolean collision(){
+    
+    if((nemo.x+nemo.img.width/2)+nemo.img.width > x &&
+       (nemo.x+nemo.img.width/2) < x + img.width &&
+       (nemo.y+nemo.img.height/2)+nemo.img.height > y &&
+       (nemo.y+nemo.img.height/2) < y + img.height){
+         return true;
+       }
+     
+     return false;
+  }
+  
 }
