@@ -56,6 +56,8 @@ void enemyDisplay(){
     enemy.display();
     if (enemy.collision()) {
       fishes.remove(i);
+      nemo.fishEaten += 1;
+      nemo.resize();
       numEnemies -= 1;
     }
   }
