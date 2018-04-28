@@ -1,0 +1,88 @@
+Final Project - Plan Outline
+
+General Description of Project: 
+Demonstrate your expertise in graphics by creating a compelling project that is beyond the scope of previous assignments. It can be an extension of any previous assignment or a completely new project. You are also allowed to change groups if you would like, but groups must be set before the first milestone deadline.
+What we NEED:
+1. Keyboard interactivity. The project must support keystrokes, which trigger some interesting functionality.
+2. Multiple GUI systems. The project must have at least two GUI systems. This could be a "main menu" screen with buttons and display information, and at least one other screen that includes buttons and display information.
+3. Class objects with animation hierarchies. The project must include objects with at least two levels of animation hierarchy (similar to what you created in Assignment 4).
+4. Data input/output. This can be data from a data set, user-created data to provide settings (e.g. a map-builder that generates a level map based on a XML or text file), or data saved from the application (e.g. high scores).
+5. Sound. The project must include some use of sound, but this sound should be mutable (toggled by the user with either a keystroke or GUI button).
+
+Story of the Project: The game "Shark Shark"
+
+Intended project: 
+	Replicate the game “Shark Shark”
+	https://www.youtube.com/watch?v=Zk-k68x9L9E
+	(an example of the game)
+	Make it visually appealing 
+	Size matters (for scoring)
+	Functionality the simulation will require: 
+	Sound file imported
+	Random()
+	Overall fish class & varying fish subclasses
+Any interactive functionality the program might have: 
+	User mouse position tracking
+	Sound played when fish eaten
+	Downloading sprites 
+Expected behavior of each team member's contributions will be: 
+	Integrating everyone’s code together so that we may correctly execute the 		game
+Intended features: 
+	Background
+	Sound when successfully eating fish
+	Sound when shark comes out
+	Fish 
+	Importing sprites 
+	Ranging from big to small 
+	Some fish there to give you grief (jellyfish)
+	Eventually winning when beating/eating the shark
+	Score GUI
+	Update size of fish after specific score
+	Recording scores in file 
+
+Current State of the Project/Progress on Project:
+	Current state of the project involves: Idea process/splitting up code
+	Godson: Fish Functionality 
+	Ross: Fish Functionality 
+	Maria: Background and GUI
+	Juan: Fish Functionality
+
+Contribution/Division of Work:
+	Godson:
+		Player’s Fish
+		Game functionalities
+	Ross: 
+		Fish
+		Shark
+		Jellyfish
+		Seahorse
+		Crab
+		Powerups
+		Invincibility
+		Speed Up
+		Slow Down
+		Increase Size
+		Game functionalities
+	Maria: 
+		Background items 
+		Seaweed, Bubbles, Rocks, Coral Reef 
+		Start Game GUI
+		Game Over GUI
+		Game functionalities
+	Juan:
+		Fish
+		Small fish
+		Enemy fish
+		Saving score
+		Game functionalities
+
+Integration Method:
+	Each person will create their own animations and then we will merge 
+	Each person will integrate different requirements of the projects
+	The goal is to create the game of Shark Shark so the user may play the game
+	Using GitHub to merge and combine project items
+
+Breakdown of Animation:
+	Each team member will created classes regarding their own animations 
+	Each class will have subclasses that tie into the game 
+	All classes/objects will interact with each other to make the game successful
