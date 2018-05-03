@@ -1,4 +1,4 @@
-bubble Bubble;
+/*bubble Bubble;
 fishing_line Fishing_Line;
 seaweed Seaweed; 
 rocks Rocks;
@@ -239,4 +239,4 @@ void gameOver(){
 
 void restart(){
   screen = 1;
-}
+}*/
