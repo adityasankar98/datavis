@@ -14,40 +14,15 @@ other_plants Other_Plants4;
 other_plants Other_Plants5;
 hook Hook;
 submarine Submarine;
-
-//Timer code begins
-String[] fontlist = PFont.list();
-int time, penalty, frame, delta = 0, attempt = 0, match1Index = 0, match2Index = 0, numTries;
-boolean match, gameOver = false, wiped = false;
-
-PFont courier;
-String timeDisplay = "Time Elapsed: ", scoreDisplay = "Final Score: ", boardDisplay = "";
-//Timer code ends
-
+int screen = 0;
 
 void setup() {
   size(1000, 800);
   
-  //Timer code begins
-  frame++;
-  if (frame == 60)
-  {
-    time = time + delta;
-    frame = 0;
-  }
-  text(timeDisplay+nf(time,2),width-300,32);
-  text(boardDisplay,(width/2)-125,430);
-  //Timer code ends
-  
   Fishing_Line = new fishing_line(width/2 - 400, height/2 - 415);
   Seaweed = new seaweed(-5, width);
-  Hook = new hook(width/2 - 407, height/2 - 215);
+  Hook = new hook(width/2 - 407, height/2 - 217);
   Submarine = new submarine(width/2 - 450, height/2 - 375); 
-  
-  //Timer code begins
-  courier = createFont("courier",24);
-  textFont(courier);
-  //Timer code ends
   
   //Coral
   Coral1 = new coral(width/2, height/2 + 200);
@@ -66,13 +41,59 @@ void setup() {
 }
 
 void draw() {
+  if (screen == 0){
+    initScreen();
+  }
+  else if (screen == 1){
+    screen();
+  } 
+  else if (screen == 2){
+    instructionScreen();
+  }
+  else if (screen == 3){
+    pauseScreen();
+  }
+  //else if (screen == 4){
+  //  gameOverScreen();
+  //}
+}
+
+void initScreen() {
+  background(124, 181, 255);
+  textAlign(CENTER);
+  textSize(70);
+  text("Welcome to", width/2, height/2 - 200);
+  text("SHARK SHARK", width/2, height/2 - 100);
+  textSize(40);
+  text("Press I for instructions", width/2, height/2 + 100);
+  text("Click to start the game", width/2, height/2 + 200);
+  //Have Shark Move Across Screen
+  
+  if ((key == 'i' | key == 'I') && keyPressed) {
+    screen = 2;
+  }
+}
+
+void instructionScreen() {
+  background(124, 181, 255);
+  textAlign(CENTER);
+  textSize(65);
+  text("Instructions for SHARK SHARK", width/2, height/2 - 300);
+  textSize(20);
+  text("You are a small fish trying to become bigger!", width/2, height/2 - 200);
+  text("Eat fish that are smaller than you so that you can become bigger", width/2, height/2 - 150);
+  text("Avoid fish that are bigger than you otherwise it's game over :-(", width/2, height/2 - 100);
+  text("Use your mouse to control your character", width/2, height/2 - 50);
+  text("Press P to pause the game at any point in time", width/2, height/2);
+  text("Press (insert something here) to mute the sound", width/2, height/2 + 50);
+  text("GOOD LUCK", width/2, height/2 + 150);
+  text("Click to start the game", width/2, height/2 + 200);
+  
+}
+
+void screen() {
   background(90, 165, 255);
   translate(0, 0);
-  
-  if (time == 0 && frame < 30)
-  {
-    boardDisplay = "Push 'S' to begin!";
-  }
   
   //Middle Bubbles
   Bubble = new bubble(width/2, height/2, 15, 15);
@@ -105,6 +126,8 @@ void draw() {
   Bubble.animate();  
   
   Fishing_Line.animate(); 
+  Hook.animate();
+  
   Seaweed.display();
   Seaweed.animate();
   
@@ -151,8 +174,69 @@ void draw() {
   Other_Plants3.animate();
   Other_Plants4.animate();
   Other_Plants5.animate();
-  
-  Hook.animate(); 
+   
   Submarine.animate();
+   
+  if ((key == 'p' | key == 'P') && keyPressed) {
+    screen = 3;
+  }
+}
+
+void pauseScreen() {
+  background(124, 181, 255);
+  textAlign(CENTER);
+  fill(255);
+  textSize(70);
+  text("Game Paused", width/2, height/2 - 100);
+  textSize(40);
+  text("Click to Resume", width/2, height/2);  
+}
+
+//void gameOverScreen() {
+//
+//  background(124, 181, 255);
+//  textAlign(CENTER);
+//  fill(255);
+//  textSize(60);
+//  text("Game Over", width/2, height/2);
+//  textSize(30);
+//  text("Click to Restart", width/2, 400);
+//}
+
+//void gameVictoryScreen(){
+//  background(124, 181, 255);
+//  textAlign(CENTER);
+//  fill(255);
+//  textSize(60);
+//  text("YOU WON!", width/2, height/2);
+//}
+
+void mousePressed() {
+  print(screen);
   
+  if (screen == 0) {
+    startGame();
+  }
+  if (screen == 4){
+    print("Restart Game");
+    restart();
+  }
+  if (screen == 3) {
+    screen = 1;
+  }
+  if (screen == 2) {
+    startGame();
+  }
+}
+ 
+void startGame() {
+  screen = 1;
+}
+
+void gameOver(){
+  screen = 4;
+}
+
+void restart(){
+  screen = 1;
 }
