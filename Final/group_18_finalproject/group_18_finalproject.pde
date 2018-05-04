@@ -79,12 +79,16 @@ void setup(){
 
 void draw(){
   if(keyPressed){
-    if(key == 'b' && musicPlaying){
-        file.stop(); 
+    if(key == 'a' && musicPlaying){
+        println("mute");
+        file.amp(0); 
         musicPlaying = false;
     }
     if(key == 'b' && !musicPlaying){
-      file.play();
+      //path = sketchPath(audioName);
+      //file = new SoundFile(this, path);   
+      println("amped");
+      file.amp(0.7);
       musicPlaying = true;
     }
   } 
