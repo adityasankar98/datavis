@@ -1,35 +1,36 @@
 Ross Miglin (rdm2965), Godson Inikori (agi93), Maria Krychniak (mck959), Juan Gomez (jdg3857): Description File
 
 What we created:
--For this assignment we decided to create the game of Shark Shark. Move your mouse around to make the fish move around  
+-For this assignment we decided to create the game of Shark Shark. Move your mouse around to make the fish move around and eat smaller fish and GROW! The more you eat the more you score but make sure to avoid the fish that are bigger than you otherwise it is game over. 
 
-UNIQUE VISUALIZATION/RSS READER (Godson)
+SCORE/SAVING SCORE IN CSV FILE (Godson)
 
-To create the UNIQUE VISUALIZATION/RSS READER: 
-	-Created a map of the United States 
-	-Created nodes class 
-	-Placed nodes on each stat	
-	-Nodes change color over time to represent Republican votes 
-	-RSS Reader
+To create the SCORE/SAVING SCORE IN CSV FILE: 
+	-
 
-BAR GRAPH/RSS READER (Maria)
 
-To create BAR GRAPH/RSS READER: 
-	-Created bar charts for all three data points
-	-Made interactivity with the bar graphs (labels)
-	-Created different colors for data
-	-RSS Reader
+ALL BACKGROUND ELEMENTS/GUI/PAUSE AND START (Maria)
 
-BAR GRAPH/RSS READER (Ross)
+To create ALL BACKGROUND ELEMENTS/GUI/PAUSE AND START: 
+	-
 
-To create the BAR GRAPH/RSS READER: 
-	-Helped import CSV fie for bar chart 
-	-RSS Reader 
+
+SOUND/FISH (Ross)
+
+To create the SOUND/FISH: 
+	-
+
+
+FISH/SCALABILITY OF FISH/COLLISION OF FISH (Juan)
+
+To create the FISH/SCALABILITY OF FISH/COLLISION OF FISH: 
+	-
 
 
 CHALLENGES & CHANGES:
 	-Took a lot to figure out 
 	-Had to be creative on how to make the simulation interactive 
 	-Was much harder and more complicated than anticipated  
+	-A lot to do to make it work
 
 README & DESCRIPTION (Maria)
