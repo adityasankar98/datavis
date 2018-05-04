@@ -1,6 +1,18 @@
+import processing.sound.*;
+
+
+
+//String soundbite = "splash.mp3";
+//String pathfile;
+//SoundFile sharkbite;
+//boolean musicPlaying = true;
+//pathfile 
+//sharkbite 
+
 float xShark = 0;
 //float yShark = 0;
-
+boolean toggle = true;
+int sharkMovement = 0;
 class shark {
   PImage img; 
   float x, y;
@@ -14,7 +26,7 @@ class shark {
   }
   
   void animate() {
-
+    sharkMovement += 1;
     img.resize(150,150);
     
     pushMatrix();
@@ -32,6 +44,17 @@ class shark {
     }
     else{
       xShark = -600;
+    }
+    if(toggle){
+      y+=5;
+      //toggle = false;
+    }else{
+      y-=5;
+      //toggle =true;
+    }
+    if(sharkMovement%15 ==0){
+      toggle = !(toggle);
+      //sharkbite.play();
     }
   }
 }
