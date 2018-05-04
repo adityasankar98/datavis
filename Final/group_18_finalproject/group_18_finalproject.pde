@@ -10,8 +10,8 @@ boolean musicPlaying = true;
 Player nemo;
 ArrayList<Fish> fishes;
 ArrayList<Fish> players;
-int numEnemies, dir;
-
+int numEnemies, dir, score, count, play, finalScore;
+float stringX;
 //Background code
 bubble Bubble;
 fishing_line Fishing_Line;
@@ -104,9 +104,9 @@ void draw(){
   else if (screen == 3){
     stopScreen();
   }
-  //else if (screen == 4){
-  //  gameOverScreen();
-  //}
+  else if (screen == 4){
+    gameOverScreen();
+  }
 }
 
 void enemyArray(){
@@ -267,9 +267,29 @@ void screen() {
   enemyDisplay();
   //playersDisplay();
   nemo.display();
+  
+  play = 1;
+  count+= play;
+  if (count%60 == 0)
+  {
+    score++;
+  }
+  
+  stringX = lerp(stringX,200,.1);
+  textSize(20);
+  fill(255);
+  text("YOUR SCORE: "+score, width-stringX, height/10);
    
   if ((key == 'p' | key == 'P') && keyPressed) {
     screen = 3;
+    play = 0;
+  }
+  
+  if (score > 10)
+  {
+    screen = 4;
+    play = 0;
+    finalScore = score;
   }
 }
 
@@ -283,18 +303,22 @@ void stopScreen() {
   text("Game Stopped", width/2, height/2 - 100);
   textSize(40);
   text("Click to Resume", width/2, height/2);  
+  textSize(20);
+  text("CURRENT SCORE: "+score, width-stringX, height/10);
 }
 
-//void gameOverScreen() {
-//
-//  background(124, 181, 255);
-//  textAlign(CENTER);
-//  fill(0);
-//  textSize(60);
-//  text("Game Over", width/2, height/2);
-//  textSize(30);
-//  text("Click to restart", width/2, height/2 + 100);
-//}
+void gameOverScreen() {
+
+  background(124, 181, 255);
+  textAlign(CENTER);
+  fill(0);
+  textSize(60);
+  text("Game Over", width/2, height/2);
+  textSize(35);
+  text("High Score: "+highScore(finalScore)+" | Your Score: "+finalScore,width/2,height/2+75);
+  textSize(30);
+  text("Click to restart", width/2, height/2 + 150);
+}
 
 //void gameVictoryScreen(){
 //  background(124, 181, 255);
@@ -333,4 +357,33 @@ void gameOver(){
 
 void restart(){
   screen = 1;
+}
+
+int highScore(int score)
+{
+  Table highScores = loadTable("highScores.csv","header");
+  int numScores = highScores.getRowCount();
+  int[] scores = new int[numScores];
+  for (int i = 1; i < numScores; i++)
+  {
+    scores[i-1] = highScores.getInt(i,1);
+  }
+  int highestScore = min(scores);
+  if (highestScore == 0)
+  {
+    highScores.getRow(0).setInt("High Scores",score);
+    saveTable(highScores,"highScores.csv");
+    return score;
+  }
+  else if (score < highestScore)
+  {
+    TableRow newRow = highScores.addRow();
+    newRow.setInt("High Scores",score);
+    saveTable(highScores,"highScores.csv");
+    return score;
+  }
+  else
+  {
+    return highestScore;
+  }
 }
