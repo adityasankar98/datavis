@@ -1,7 +1,7 @@
 class Fish {
   int speed, type, ySwim, fishVert;
-  PImage img;
-  float x, y, yp;
+  PShape img;
+  float x, y, yp, s;
   boolean swimUp, swimRight = true;
   String file;
   
@@ -9,16 +9,38 @@ class Fish {
   
   Fish(String folder, int type) {
     this.type = type;
+    if (type == 8){
+        s = 0.0625;
+      } else if (type == 3){
+        s = 0.078125;
+      } else if (type == 6){
+        s = 0.09375;
+      } else if (type == 1) {
+        s = 0.109375;
+      } else if (type == 2) {
+        s = 0.109375;
+      } else if (type == 4) {
+        s = 0.125;
+      } else if (type == 5) {
+        s = 0.140625;
+      } else if (type == 7) {
+        s = 0.15625;
+      } else if (type == 9) {
+        s = 0.171875;
+      } else {
+        s = 0.1825;
+      }
+
     if (type > 8){
       swimRight = false;
     }
     if(type < 10){
-      file = folder + "0" + type +".png";
+      file = folder + "0" + type +".svg";
     }
     else{
-      file = folder + type + ".png";
+      file = folder + type + ".svg";
     }
-    img = loadImage(file);
+    img = loadShape(file);
     speed = int(random(1,7));
     ySwim = 0;
     swimUp = random(1) > 0.5;
@@ -37,7 +59,7 @@ class Fish {
   void display() {
     if (type == 18)
     {
-      img.resize(75,40);
+      //img.resize(75,40);
       if(swimUp){
         yp+=1;
         y = (mouseY-(img.height/2)) + yp;
@@ -60,7 +82,7 @@ class Fish {
     }
     else
     {
-      img.resize(50,50);
+      pushMatrix();
       if(swimUp){
         y+=1;
         ySwim++;
@@ -95,8 +117,10 @@ class Fish {
         
       }
     }
-    
-    image(img,x,y);
+    translate(x,y);
+    scale(s);
+    shape(img,0,0);
+    popMatrix();
   }
   
   boolean collision(){

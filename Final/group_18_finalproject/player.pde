@@ -2,7 +2,7 @@ class Player {
   PShape img;
   String file;
   float x, y, s;
-  int size,fishEaten;
+  int fishEaten;
   
   //Credit to Freepik at flaticon.com for images
   

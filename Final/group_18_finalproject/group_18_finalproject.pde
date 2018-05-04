@@ -74,7 +74,7 @@ void draw(){
 
 void enemyArray(){
   for (int i=0; i <numEnemies; i++) {
-    int type = int(random(1,18));
+    int type = int(random(1,10));
     fishes.add(new Fish("fish_", type));
   }
 }
@@ -91,7 +91,7 @@ void enemyDisplay(){
     }
   }
   
-  if (random(300) < 1){
+  if (random(50) < 1){
     int type = int(random(1,7));
     fishes.add(new Fish("fish_", type));
     numEnemies += 1;
