@@ -309,7 +309,6 @@ void stopScreen() {
 }
 
 void gameOverScreen() {
-
   background(124, 181, 255);
   textAlign(CENTER);
   fill(0);
@@ -336,19 +335,23 @@ void mousePressed() {
   if (screen == 0) {
     startGame();
   }
-  if (screen == 4){
-    print("Restart Game");
-    restart();
-  }
+  //if (screen == 4){
+  //  print("Restart Game");
+  //  restart();
+  //}
   if (screen == 3) {
     screen = 1;
   }
   if (screen == 2) {
     startGame();
   }
+  if (screen == 4){
+    restart();
+  }
 }
  
 void startGame() {
+  score = 0;
   screen = 1;
 }
 
@@ -357,7 +360,8 @@ void gameOver(){
 }
 
 void restart(){
-  screen = 1;
+  score = 0;
+  screen = 0;
 }
 
 int highScore(int score)
