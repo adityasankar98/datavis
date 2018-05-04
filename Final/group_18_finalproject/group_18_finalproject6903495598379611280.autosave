@@ -11,6 +11,7 @@ Player nemo;
 ArrayList<Fish> fishes;
 ArrayList<Fish> players;
 ArrayList<shark> sharks;
+
 int numEnemies, dir, score, count, play, finalScore, numSharks;
 float stringX;
 //Background code
@@ -50,11 +51,11 @@ void setup(){
   nemo = new Player();
   players = new ArrayList<Fish>();
   players.add(new Fish("fish_",0));
+  sharks = new ArrayList<shark>();
   numEnemies = 3;
   numSharks = 1;
-  sharks = new ArrayList<shark>();
-  sharkArray();
   enemyArray();
+  sharkArray();
   
   //Background code
   Fishing_Line = new fishing_line(width/2 - 400, height/2 - 415);
@@ -113,25 +114,23 @@ void draw(){
   }
 }
 
-void sharkArray(){
-  for (int i = 0; i < numSharks; i++){
-    sharks.add(new shark(0, int(random(200,600))));
-  }
-}
-
-void sharkDisplay(){
-  for (int i =0; i<numSharks; i++){
-    shark opp = sharks.get(i);
-    opp.animate();
-  }
-}
 void enemyArray(){
   for (int i=0; i <numEnemies; i++) {
     int type = int(random(1,10));
     fishes.add(new Fish("fish_", type));
   }
 }
-
+void sharkArray(){
+  for (int i = 0; i <numSharks; i++){
+    sharks.add(new shark(0, int(random(200,600))));
+  }
+}
+void sharkDisplay(){
+  for (int i= 0; i < numSharks; i++){
+    shark opp = sharks.get(i);
+    opp.animate();
+  }
+}
 void enemyDisplay(){
   for (int i=0; i < numEnemies; i++) {
     Fish enemy = fishes.get(i);
@@ -188,8 +187,8 @@ void instructionScreen() {
   text("Avoid fish that are bigger than you otherwise it's game over :-(", width/2, height/2 - 100);
   text("Use your mouse to control your character", width/2, height/2 - 50);
   text("Press P to pause the game at any point in time", width/2, height/2);
-  text("Press A to mute the sound", width/2, height/2 + 50);
-  text("Press B to unmute the sound", width/2, height/2 + 100);
+  text("Press B to mute the sound", width/2, height/2 + 50);
+  text("Press A to unmute the sound", width/2, height/2 + 50);
   text("GOOD LUCK", width/2, height/2 + 150);
   text("Click to start the game", width/2, height/2 + 200);
   
@@ -282,9 +281,9 @@ void screen() {
   Submarine.animate();
   
   enemyDisplay();
+  sharkDisplay();
   //playersDisplay();
   nemo.display();
-  sharkDisplay();
   
   play = 1;
   count+= play;
@@ -326,6 +325,7 @@ void stopScreen() {
 }
 
 void gameOverScreen() {
+
   background(124, 181, 255);
   textAlign(CENTER);
   fill(0);
@@ -352,23 +352,19 @@ void mousePressed() {
   if (screen == 0) {
     startGame();
   }
-  //if (screen == 4){
-  //  print("Restart Game");
-  //  restart();
-  //}
+  if (screen == 4){
+    print("Restart Game");
+    restart();
+  }
   if (screen == 3) {
     screen = 1;
   }
   if (screen == 2) {
     startGame();
   }
-  if (screen == 4){
-    restart();
-  }
 }
  
 void startGame() {
-  score = 0;
   screen = 1;
 }
 
@@ -377,8 +373,7 @@ void gameOver(){
 }
 
 void restart(){
-  score = 0;
-  screen = 0;
+  screen = 1;
 }
 
 int highScore(int score)

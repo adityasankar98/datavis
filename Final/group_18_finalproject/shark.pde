@@ -1,4 +1,5 @@
 float xShark = 0;
+//float yShark = 0;
 
 class shark {
   PImage img; 
@@ -18,7 +19,8 @@ class shark {
     
     pushMatrix();
   
-    translate(xShark, 0);
+    //translate(xShark, yShark);
+    translate(xShark,0);
     
     image(img, x, y);
     
@@ -26,6 +28,7 @@ class shark {
     
     if (xShark < 1000 && xShark > -3000){
       xShark += 4;
+      //yShark -= 2;
     }
     else{
       xShark = -600;
