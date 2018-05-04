@@ -100,7 +100,9 @@ void draw(){
   else if (screen == 3){
     stopScreen();
   }
-
+  //else if (screen == 4){
+  //  gameOverScreen();
+  //}
 }
 
 void enemyArray(){
@@ -278,6 +280,26 @@ void stopScreen() {
   textSize(40);
   text("Click to Resume", width/2, height/2);  
 }
+
+//void gameOverScreen() {
+//
+//  background(124, 181, 255);
+//  textAlign(CENTER);
+//  fill(0);
+//  textSize(60);
+//  text("Game Over", width/2, height/2);
+//  textSize(30);
+//  text("Click to restart", width/2, height/2 + 100);
+//}
+
+//void gameVictoryScreen(){
+//  background(124, 181, 255);
+//  textAlign(CENTER);
+//  fill(0);
+//  textSize(60);
+//  text("YOU BEAT THE SHARK AND WON!", width/2, height/2);
+//  text("Click to restart to play again!", width/2, height/2 + 100);
+//}
 
 void mousePressed() {
   print(screen);
