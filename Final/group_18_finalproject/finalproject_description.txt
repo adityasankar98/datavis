@@ -3,28 +3,41 @@ Ross Miglin (rdm2965), Godson Inikori (agi93), Maria Krychniak (mck959), Juan Go
 What we created:
 -For this assignment we decided to create the game of Shark Shark. Move your mouse around to make the fish move around and eat smaller fish and GROW! The more you eat the more you score but make sure to avoid the fish that are bigger than you otherwise it is game over. 
 
-SCORE/SAVING SCORE IN CSV FILE (Godson)
+SCORE/SAVING SCORE IN CSV FILE/FISH (Godson)
 
-To create the SCORE/SAVING SCORE IN CSV FILE: 
-	-
+To create the SCORE/SAVING SCORE IN CSV FILE/FISH: 
+	-Worked on populating the game with fish that were a part of the game 
+	-Created score and the method of saving the score
+	-Helped created the score GUI
+	-Created the method of counting score during the game
 
 
 ALL BACKGROUND ELEMENTS/GUI/PAUSE AND START (Maria)
 
 To create ALL BACKGROUND ELEMENTS/GUI/PAUSE AND START: 
-	-
+	-Used classes to create all the background visual components of the game 
+	-Used different forces to move things around
+	-Created the Start Game GUI screen
+	-Created the Pause Game GUI screen
+	-Created the Instruction Game GUI screen
 
 
 SOUND/FISH (Ross)
 
 To create the SOUND/FISH: 
-	-
+	-Added sound and being able to mute the sound when needed 
+	-Worked on populating the game with fish that were a part of the game 
+	-Worked on the fish class 
+	-Worked on the shark
 
 
 FISH/SCALABILITY OF FISH/COLLISION OF FISH (Juan)
 
 To create the FISH/SCALABILITY OF FISH/COLLISION OF FISH: 
-	-
+	-Worked on populating the game with fish that were a part of the game 
+	-Made the fish scalable as the main fish grew 
+	-Made the main fish grow 
+	-Made all the fish SVG files 
 
 
 CHALLENGES & CHANGES:

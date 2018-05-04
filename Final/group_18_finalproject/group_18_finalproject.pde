@@ -166,7 +166,7 @@ void instructionScreen() {
   text("Avoid fish that are bigger than you otherwise it's game over :-(", width/2, height/2 - 100);
   text("Use your mouse to control your character", width/2, height/2 - 50);
   text("Press P to pause the game at any point in time", width/2, height/2);
-  text("Press B to mute the sound", width/2, height/2 + 50);
+  text("Press B to mute the sound (or unmute sound)", width/2, height/2 + 50);
   text("GOOD LUCK", width/2, height/2 + 150);
   text("Click to start the game", width/2, height/2 + 200);
   
