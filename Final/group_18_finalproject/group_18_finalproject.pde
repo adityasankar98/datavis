@@ -29,6 +29,7 @@ other_plants Other_Plants4;
 other_plants Other_Plants5;
 hook Hook;
 submarine Submarine;
+shark Shark;
 int screen = 0;
 
 PFont courier;
@@ -56,6 +57,7 @@ void setup(){
   Seaweed = new seaweed(-5, width);
   Hook = new hook(width/2 - 407, height/2 - 217);
   Submarine = new submarine(width/2 - 450, height/2 - 375); 
+  Shark = new shark(width/2, height/2);
   
   //Coral
   Coral1 = new coral(width/2, height/2 + 200);
@@ -137,6 +139,7 @@ void firstScreen() {
   textAlign(CENTER);
   textSize(70);
   fill(0);
+  Shark.animate();
   text("Welcome to", width/2, height/2 - 200);
   text("SHARK SHARK", width/2, height/2 - 100);
   textSize(40);
@@ -152,9 +155,10 @@ void firstScreen() {
 void instructionScreen() {
   background(124, 181, 255);
   textAlign(CENTER);
-  textSize(65);
+  textSize(59);
   fill(0);
   text("Instructions for SHARK SHARK", width/2, height/2 - 300);
+  Shark.animate();
   textSize(20);
   fill(255);
   text("You are a small fish trying to become bigger!", width/2, height/2 - 200);
@@ -268,6 +272,7 @@ void stopScreen() {
   textAlign(CENTER);
   fill(255);
   textSize(70);
+  Shark.animate();
   fill(0);
   text("Game Stopped", width/2, height/2 - 100);
   textSize(40);
