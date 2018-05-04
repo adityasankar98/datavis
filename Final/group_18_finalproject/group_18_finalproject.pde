@@ -82,7 +82,7 @@ void draw(){
     }
   } 
   if (screen == 0){
-    initScreen();
+    firstScreen();
   }
   else if (screen == 1){
     screen();
@@ -91,7 +91,7 @@ void draw(){
     instructionScreen();
   }
   else if (screen == 3){
-    pauseScreen();
+    stopScreen();
   }
 
 }
@@ -127,10 +127,11 @@ void playersDisplay(){
   player.display();
 }
 
-void initScreen() {
+void firstScreen() {
   background(124, 181, 255);
   textAlign(CENTER);
   textSize(70);
+  fill(0);
   text("Welcome to", width/2, height/2 - 200);
   text("SHARK SHARK", width/2, height/2 - 100);
   textSize(40);
@@ -147,8 +148,10 @@ void instructionScreen() {
   background(124, 181, 255);
   textAlign(CENTER);
   textSize(65);
+  fill(0);
   text("Instructions for SHARK SHARK", width/2, height/2 - 300);
   textSize(20);
+  fill(255);
   text("You are a small fish trying to become bigger!", width/2, height/2 - 200);
   text("Eat fish that are smaller than you so that you can become bigger", width/2, height/2 - 150);
   text("Avoid fish that are bigger than you otherwise it's game over :-(", width/2, height/2 - 100);
@@ -255,11 +258,12 @@ void screen() {
   }
 }
 
-void pauseScreen() {
+void stopScreen() {
   background(124, 181, 255);
   textAlign(CENTER);
   fill(255);
   textSize(70);
+  fill(0);
   text("Game Paused", width/2, height/2 - 100);
   textSize(40);
   text("Click to Resume", width/2, height/2);  
