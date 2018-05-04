@@ -1,9 +1,10 @@
-float xHook = 0;
 float yHook = 0;
+float xHook = 0;
 float angleHook = 0;
 
 class hook {
   PImage img; 
+  
   float x, y;
   
   hook(float x, float y){
@@ -20,18 +21,26 @@ class hook {
     
     pushMatrix();
    
-    translate(xHook, yHook);
-    translate(0, yFish);
+    translate(x, y + yHook);
     
-    image(img, x, y);
+    rotate(radians(angleHook));
+    
+    image(img, 0, 0);
     
     popMatrix();
     
     if (millis()/1000 % 2 == 0){
-      yFish +=.5;
+      yHook +=.5;
     }
     else {
-      yFish -=.5;
+      yHook -=.5;
+    }
+    
+    if (millis()/1000 % 2 == 0){
+      angleHook += .4;
+    }
+    else {
+      angleHook -= .4;
     }
   }  
 }
