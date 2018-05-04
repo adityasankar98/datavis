@@ -31,6 +31,8 @@ hook Hook;
 submarine Submarine;
 int screen = 0;
 
+PFont courier;
+
 void setup(){
   
   path = sketchPath(audioName);
@@ -68,6 +70,9 @@ void setup(){
   Other_Plants3 = new other_plants(width/2 - 430, height/2 + 225);
   Other_Plants4 = new other_plants(width/2 + 150, height/2 + 250);
   Other_Plants5 = new other_plants(width/2 + 275, height/2 + 200);
+  
+  courier = createFont("courier",24);
+  textFont(courier);
 }
 
 void draw(){
@@ -264,7 +269,7 @@ void stopScreen() {
   fill(255);
   textSize(70);
   fill(0);
-  text("Game Paused", width/2, height/2 - 100);
+  text("Game Stopped", width/2, height/2 - 100);
   textSize(40);
   text("Click to Resume", width/2, height/2);  
 }
