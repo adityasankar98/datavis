@@ -98,8 +98,7 @@ void enemyDisplay(){
   }
 }
 
-void playersDisplay()
-{
+void playersDisplay(){
   Fish player = players.get(0);
   player.display();
 }
