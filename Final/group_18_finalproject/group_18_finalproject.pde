@@ -340,7 +340,7 @@ void gameVictoryScreen(){
   fill(0);
   textSize(40);
   text("YOU BEAT THE SHARK AND WON!", width/2, height/2);
-  text("Click to restart to play again!", width/2, height/2 + 100);
+  text("Click to play again!", width/2, height/2 + 100);
 }
 
 void mousePressed() {
@@ -356,7 +356,7 @@ void mousePressed() {
     startGame();
   }
   if (screen == 4){
-    startGame();
+    restart();
   }
   if (screen == 5){
     restart();
