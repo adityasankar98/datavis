@@ -1,5 +1,5 @@
 class Fish {
-  int speed, type, ySwim, fishVert;
+  int speed, type, ySwim, fishVert, dir;
   PShape img;
   float x, y, yp, s;
   boolean swimUp, swimRight = true;
@@ -7,7 +7,7 @@ class Fish {
   
   //Credit to Freepik at flaticon.com for images
   
-  Fish(String folder, int type) {
+  Fish(String folder, int type, int dir) {
     this.type = type;
     if (type == 8){
         s = 0.0625;
@@ -31,7 +31,7 @@ class Fish {
         s = 0.1825;
       }
 
-    if (type > 8){
+    if (dir > 5){
       swimRight = false;
     }
     if(type < 10){
@@ -59,7 +59,6 @@ class Fish {
   void display() {
     if (type == 18)
     {
-      //img.resize(75,40);
       if(swimUp){
         yp+=1;
         y = (mouseY-(img.height/2)) + yp;
@@ -82,7 +81,6 @@ class Fish {
     }
     else
     {
-      pushMatrix();
       if(swimUp){
         y+=1;
         ySwim++;
@@ -100,39 +98,56 @@ class Fish {
         }
       }
       if(swimRight){
+        pushMatrix();
         if (x>1000) {
           y = random(0,800);
           x = 0;
         } else {
           x += speed;
         }
-      }
-      else{
+        translate(x,y);
+        scale(s);
+        shape(img,0,0);
+        popMatrix();
+      }else{
+        pushMatrix();
         if (x < 0){
           y = random(0,800);
           x = 1000;
         } else {
           x -= speed;
         }
+        translate(x,y);
+        scale(-s, s);
+        shape(img,0,0);
+        popMatrix();
         
       }
-    }
-    translate(x,y);
-    scale(s);
-    shape(img,0,0);
-    popMatrix();
+    }    
   }
   
   boolean collision(){
     
-    if((nemo.x+nemo.img.width/2)+nemo.img.width > x &&
-       (nemo.x+nemo.img.width/2) < x + img.width &&
-       (nemo.y+nemo.img.height/2)+nemo.img.height > y &&
-       (nemo.y+nemo.img.height/2) < y + img.height){
-         return true;
-       }
-     
+    pushMatrix();
+    
+    if (swimRight){
+      translate(x,y);
+      scale(s);
+    } else {
+      translate(x,y);
+      scale(-s,s);
+    }
+    float mx = screenX(img.width/2,img.height/2);
+    float my = screenY(img.width/2,img.height/2);
+    
+    float distance = dist(mx, my, mouseX, mouseY);
+    
+    if (distance < 25){
+      popMatrix();
+      return true;
+    }
+    
+     popMatrix();
      return false;
   }
-  
 }

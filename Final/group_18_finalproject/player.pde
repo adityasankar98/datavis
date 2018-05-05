@@ -14,17 +14,16 @@ class Player {
   
   void display() {
     pushMatrix();
-    x = mouseX-img.width/2;
-    y = mouseY-img.height/2;
     translate(mouseX,mouseY);
     scale(s);
-    
+    x = mouseX-img.width/2;
+    y = mouseY-img.height/2;
     shape(img,-img.width/2,-img.height/2);
     popMatrix();
   }
   
   void resize() {
-    if (fishEaten % 5 == 0){
+    if (score % 5 == 0){
       s = s * 1.5;
     }
   }

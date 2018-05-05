@@ -45,7 +45,7 @@ class shark {
     else{
       xShark = -600;
     }
-    if(toggle){
+    /*if(toggle){
       y+=5;
       //toggle = false;
     }else{
@@ -55,6 +55,6 @@ class shark {
     if(sharkMovement%15 ==0){
       toggle = !(toggle);
       //sharkbite.play();
-    }
+    }*/
   }
 }

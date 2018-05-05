@@ -9,9 +9,8 @@ boolean musicPlaying = true;
 //Fish code
 Player nemo;
 ArrayList<Fish> fishes;
-ArrayList<Fish> players;
 ArrayList<shark> sharks;
-int numEnemies, dir, score, count, play, finalScore, numSharks;
+int numEnemies, score, count, play, finalScore, numSharks;
 float stringX;
 //Background code
 bubble Bubble;
@@ -47,12 +46,10 @@ void setup(){
   
   //Fish code
   fishes = new ArrayList<Fish>();
+  sharks = new ArrayList<shark>();
   nemo = new Player();
-  players = new ArrayList<Fish>();
-  players.add(new Fish("fish_",0));
   numEnemies = 3;
   numSharks = 1;
-  sharks = new ArrayList<shark>();
   sharkArray();
   enemyArray();
   
@@ -84,14 +81,12 @@ void setup(){
 void draw(){
   if(keyPressed){
     if(key == 'a' && musicPlaying){
-        println("mute");
         file.amp(0); 
         musicPlaying = false;
     }
     if(key == 'b' && !musicPlaying){
       //path = sketchPath(audioName);
       //file = new SoundFile(this, path);   
-      println("amped");
       file.amp(0.7);
       musicPlaying = true;
     }
@@ -125,10 +120,12 @@ void sharkDisplay(){
     opp.animate();
   }
 }
+
 void enemyArray(){
   for (int i=0; i <numEnemies; i++) {
     int type = int(random(1,10));
-    fishes.add(new Fish("fish_", type));
+    int lr = int(random(1,10));
+    fishes.add(new Fish("fish_", type, lr));
   }
 }
 
@@ -137,23 +134,24 @@ void enemyDisplay(){
     Fish enemy = fishes.get(i);
     enemy.display();
     if (enemy.collision()) {
-      fishes.remove(i);
-      nemo.fishEaten += 1;
-      nemo.resize();
-      numEnemies -= 1;
+      if ((nemo.s == enemy.s) || (nemo.s > enemy.s)){
+        fishes.remove(i);
+        score ++;
+        nemo.resize();
+        numEnemies -= 1;
+      } else {
+        nemo.s = 0.0625;
+        score = 0;
+      }
     }
   }
   
   if (random(50) < 1){
-    int type = int(random(1,7));
-    fishes.add(new Fish("fish_", type));
+    int type = int(random(1,10));
+    int lr = int(random(1,10));
+    fishes.add(new Fish("fish_", type, lr));
     numEnemies += 1;
   }
-}
-
-void playersDisplay(){
-  Fish player = players.get(0);
-  player.display();
 }
 
 void firstScreen() {
@@ -169,8 +167,10 @@ void firstScreen() {
   text("Click to start the game", width/2, height/2 + 200);
   //Have Shark Move Across Screen
   
-  if ((key == 'i' | key == 'I') && keyPressed) {
-    screen = 2;
+  if (keyPressed) {
+    if (key == 'i' | key == 'I'){
+      screen = 2;
+    }
   }
 }
 
@@ -282,16 +282,15 @@ void screen() {
   Submarine.animate();
   
   enemyDisplay();
-  //playersDisplay();
   nemo.display();
   sharkDisplay();
   
-  play = 1;
+  /*play = 1;
   count+= play;
   if (count%60 == 0)
   {
     score++;
-  }
+  }*/
   
   stringX = lerp(stringX,200,.1);
   textSize(20);
