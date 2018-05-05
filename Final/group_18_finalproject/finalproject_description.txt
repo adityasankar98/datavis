@@ -1,7 +1,7 @@
 Ross Miglin (rdm2965), Godson Inikori (agi93), Maria Krychniak (mck959), Juan Gomez (jdg3857): Description File
 
 What we created:
--For this assignment we decided to create the game of Shark Shark. Move your mouse around to make the fish move around and eat smaller fish and GROW! The more you eat the more you score but make sure to avoid the fish that are bigger than you otherwise it is game over. 
+-For this assignment we decided to create the game of Shark Shark. Move your mouse around to make the fish move around and eat smaller fish and GROW! The more you eat the more you score but make sure to avoid the fish that are bigger than you otherwise score goes back down to 0 and you get small again. 
 
 SCORE/SAVING SCORE IN CSV FILE/FISH (Godson)
 

@@ -7,8 +7,9 @@ Ross Miglin (rdm2965), Godson Inikori (agi93), Maria Krychniak (mck959), Juan Go
 	-Click to Play
 	-Press "I" for instructions
 	-Move your mouse to move the fish to eat smaller fish and gain points
-	-Avoid bigger fish (or otherwise, game over)
+	-Avoid bigger fish (or otherwise, score goes back down to 0)
 	-Press "P" to pause 
-	-Press "B" to mute and unmute sound (MAKE SURE TO HAVE SOUND LIBRARY 		DOWNLOADED IN PROCESSING)
+	-Press "A" to mute sound
+	-Press "B" unmute sound (MAKE SURE TO HAVE SOUND LIBRARY 				DOWNLOADED IN PROCESSING)
 	-Click to Resume after Pause 
 	

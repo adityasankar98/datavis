@@ -351,10 +351,6 @@ void mousePressed() {
   if (screen == 0) {
     startGame();
   }
-  //if (screen == 4){
-  //  print("Restart Game");
-  //  restart();
-  //}
   if (screen == 3) {
     screen = 1;
   }
