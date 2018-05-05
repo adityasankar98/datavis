@@ -369,11 +369,13 @@ void startGame() {
 }
 
 void gameOver(){
+  nemo.s == 0.0625;
   score = 0;
   screen = 4;
 }
 
 void restart(){
+  nemo.s == 0.0625;
   score = 0;
   screen = 0;
 }
