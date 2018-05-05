@@ -10,6 +10,7 @@ class Player {
     file = "fish_00.svg";
     img = loadShape(file);
     s=0.0625;
+    //s=.3;
   }
   
   void display() {
