@@ -15,11 +15,12 @@ boolean toggle = true;
 int sharkMovement = 0;
 class shark {
   PImage img; 
-  float x, y;
+  float x, y, s;
   
   shark(float x, float y) {
     this.x = x;
     this.y = y;
+    s = 0.21875;
     img = loadImage("shark.png");
     
     //Credit to Freepik at flaticon.com for images
@@ -43,6 +44,7 @@ class shark {
       //yShark -= 2;
     }
     else{
+      y = random(0,800);
       xShark = -600;
     }
     /*if(toggle){
@@ -56,5 +58,34 @@ class shark {
       toggle = !(toggle);
       //sharkbite.play();
     }*/
+  }
+  
+  boolean collision(){
+    
+    //pushMatrix();
+    
+    /*if (swimRight){
+      translate(x,y);
+      scale(s);
+    } else {
+      translate(x,y);
+      scale(-s,s);
+    }*/
+    pushMatrix();
+  
+    //translate(xShark, yShark);
+    translate(xShark,y);
+    float mx = screenX(img.width/2,img.height/2);
+    float my = screenY(img.width/2,img.height/2);
+    
+    float distance = dist(mx, my, mouseX, mouseY);
+    
+    if (distance < 25){
+      popMatrix();
+      return true;
+    }
+    
+     popMatrix();
+     return false;
   }
 }

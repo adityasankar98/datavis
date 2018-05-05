@@ -28,7 +28,7 @@ class Fish {
       } else if (type == 9) {
         s = 0.171875;
       } else {
-        s = 0.1825;
+        s = 0.18825;
       }
 
     if (dir > 5){

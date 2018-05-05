@@ -8,6 +8,7 @@ boolean musicPlaying = true;
 
 //Fish code
 Player nemo;
+shark opp;
 ArrayList<Fish> fishes;
 ArrayList<shark> sharks;
 int numEnemies, score, count, play, finalScore, numSharks;
@@ -118,6 +119,14 @@ void sharkDisplay(){
   for (int i =0; i<numSharks; i++){
     shark opp = sharks.get(i);
     opp.animate();
+    if (opp.collision()){
+      if ((nemo.s == opp.s) || (nemo.s > opp.s)){
+        screen = 5;
+      } else {
+        screen = 4;
+        finalScore = score;
+      }
+    }
   }
 }
 
@@ -140,13 +149,13 @@ void enemyDisplay(){
         nemo.resize();
         numEnemies -= 1;
       } else {
-        nemo.s = 0.0625;
-        score = 0;
+        screen = 4;
+        finalScore = score;
       }
     }
   }
   
-  if (random(50) < 1){
+  if (random(200) < 1){
     int type = int(random(1,10));
     int lr = int(random(1,10));
     fishes.add(new Fish("fish_", type, lr));
@@ -285,12 +294,6 @@ void screen() {
   nemo.display();
   sharkDisplay();
   
-  /*play = 1;
-  count+= play;
-  if (count%60 == 0)
-  {
-    score++;
-  }*/
   
   stringX = lerp(stringX,200,.1);
   textSize(20);
@@ -302,12 +305,6 @@ void screen() {
     play = 0;
   }
   
-  if (score > 10)
-  {
-    screen = 4;
-    play = 0;
-    finalScore = score;
-  }
 }
 
 void stopScreen() {
@@ -336,14 +333,14 @@ void gameOverScreen() {
   text("Click to restart", width/2, height/2 + 150);
 }
 
-//void gameVictoryScreen(){
-//  background(124, 181, 255);
-//  textAlign(CENTER);
-//  fill(0);
-//  textSize(60);
-//  text("YOU BEAT THE SHARK AND WON!", width/2, height/2);
-//  text("Click to restart to play again!", width/2, height/2 + 100);
-//}
+void gameVictoryScreen(){
+  background(124, 181, 255);
+  textAlign(CENTER);
+  fill(0);
+  textSize(60);
+  text("YOU BEAT THE SHARK AND WON!", width/2, height/2);
+  text("Click to restart to play again!", width/2, height/2 + 100);
+}
 
 void mousePressed() {
   print(screen);
@@ -351,10 +348,6 @@ void mousePressed() {
   if (screen == 0) {
     startGame();
   }
-  //if (screen == 4){
-  //  print("Restart Game");
-  //  restart();
-  //}
   if (screen == 3) {
     screen = 1;
   }
@@ -363,6 +356,9 @@ void mousePressed() {
   }
   if (screen == 4){
     restart();
+  }
+  if (screen == 5){
+    gameVictoryScreen();
   }
 }
  
